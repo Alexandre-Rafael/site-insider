@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: Alexandre-Rafael/site-insider
+  branch: main
+  base_url: https://insider-midia.vercel.app
+  auth_endpoint: api/auth
+
+publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+locale: "pt"
+
+site_url: https://insider-midia.vercel.app
+display_url: https://insider-midia.vercel.app
+logo_url: https://insider-midia.vercel.app/assets/INSIDER%20-%20logo%20branca.png
+
+collections:
+  - name: "blog"
+    label: "Matérias do Blog"
+    label_singular: "Matéria"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} — {{category}} ({{date | date('DD/MM/YYYY')}})"
+    fields:
+      - { name: "title",    label: "Título",     widget: "string" }
+      - { name: "subtitle", label: "Subtítulo",  widget: "string", required: false, hint: "Aparece abaixo do título na página da matéria" }
+      - { name: "excerpt",  label: "Resumo para o Google (SEO)", widget: "text", required: false, hint: "Descrição curta exibida nos resultados de busca. Máx. 160 caracteres." }
+      - { name: "cover",    label: "Imagem de capa", widget: "image" }
+      - name: "category"
+        label: "Categoria"
+        widget: "select"
+        options:
+          - "Cases de Sucesso"
+          - "Marketing Digital"
+          - "Tráfego Pago"
+          - "Branding"
+          - "Bastidores"
+      - { name: "author", label: "Autor", widget: "string", default: "Insider Mídia" }
+      - { name: "date",   label: "Data de publicação", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { name: "draft",  label: "Rascunho (não publicar)", widget: "boolean", default: false }
+      - name: "body"
+        label: "Conteúdo da matéria"
+        widget: "markdown"
+        buttons: [bold, italic, code, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: [image, code-block]

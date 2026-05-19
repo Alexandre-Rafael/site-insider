@@ -1,0 +1,48 @@
+---
+const { current } = Astro.props as { current?: string };
+const link = (href: string, label: string, key: string) => ({ href, label, active: current === key });
+const items = [
+  link('/', 'Home', 'home'),
+  link('/sobre/', 'Sobre Nós', 'sobre'),
+  link('/solucoes/', 'Soluções', 'solucoes'),
+  link('/parceiros/', 'Parceiros', 'parceiros'),
+  link('/cases/', 'Cases', 'cases'),
+  link('/blog/', 'Blog', 'blog'),
+  link('/contato/', 'Contato', 'contato'),
+];
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-border-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="flex-shrink-0 flex items-center">
+        <img src="/assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden md:flex gap-6 items-center">
+        {items.map((it) => (
+          <a href={it.href} class={`text-sm font-medium transition-colors ${it.active ? 'text-white' : 'text-slate-300 hover:text-white'}`}>{it.label}</a>
+        ))}
+        <a href="/contato/" class="ml-4 inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold rounded-full text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary shadow-lg shadow-primary/40 transition-all glow-effect">
+          Falar com Especialista
+        </a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-white flex items-center p-2" aria-label="menu">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="hidden md:hidden bg-[#0B0F19] border-b border-white/10 absolute top-20 left-0 w-full shadow-xl">
+    <nav class="flex flex-col px-4 py-6 gap-4">
+      {items.map((it) => (
+        <a href={it.href} class="text-base font-medium text-slate-300 hover:text-white">{it.label}</a>
+      ))}
+      <a href="/contato/" class="mt-4 w-full text-center inline-flex items-center justify-center px-6 py-3 text-base font-bold rounded-full text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary shadow-lg shadow-primary/40">
+        Falar com Especialista
+      </a>
+    </nav>
+  </div>
+</header>
+<script is:inline>
+  const btn = document.getElementById('mobileMenuBtn');
+  const nav = document.getElementById('mobileNav');
+  if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('hidden'));
+</script>

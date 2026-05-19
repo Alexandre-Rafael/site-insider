@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    
+        <meta property="og:title" content="Soluções para Negócios | Insider Mídia">
+        <meta property="og:description" content="Estratégias de marketing digital que geram vendas reais em Patos de Minas e região.">
+        <meta property="og:image" content="../assets/bg.jpg">
+        <meta name="description" content="Estratégias de marketing digital que geram vendas reais em Patos de Minas e região.">
+    <title>Soluções para Negócios | Insider Mídia</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6", // Blue-500
+                        "primary-dark": "#1D4ED8", // Blue-700
+                        "primary-light": "#60A5FA", // Blue-400
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0B0F19", // Deep dark blue/black
+                        "surface-dark": "#111827", // Gray-900
+                        "surface-light": "#FFFFFF",
+                        "border-dark": "#1F2937", // Gray-800
+                        "border-light": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        'xl': "1.5rem",
+                        '2xl': "2rem",
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                    }
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            /* Cor RGB (0-255) - Insider Mídia Primary (#3B82F6) */
+            --spotlight-color-r: 59;
+            --spotlight-color-g: 130;
+            --spotlight-color-b: 246;
+            --spotlight-intensity-1: 0.3;
+            /* Subtle center */
+            --spotlight-intensity-2: 0.15;
+            /* Subtle middle */
+            --spotlight-intensity-3: 0.05;
+            /* Faintest edge */
+            --spotlight-size: 400px;
+            --spotlight-blur: 60px;
+            /* Increased blur for softer edges */
+            --spotlight-speed: 0.15;
+            --spotlight-blend: screen;
+            /* Changed to screen for a lighter effect */
+            --spotlight-z: 10;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+        }
+
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .icon-3d-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-3d-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0) 70%);
+            filter: blur(20px);
+            z-index: 0;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+
+        .show-from-bottom {
+            opacity: 0;
+            filter: blur(7px);
+            transform: translate(0px, 80px);
+            animation: showFromBottom 0.5s ease forwards;
+        }
+
+        /* Keyframe que anima de "scroll-bottom" para o estado final */
+        @keyframes showFromBottom {
+            from {
+                opacity: 0;
+                filter: blur(7px);
+                transform: translate(0px, 80px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translate(0, 0);
+            }
+        }
+
+
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes scrollPage {
+            0% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-40%);
+            }
+
+            50% {
+                transform: translateY(-40%);
+            }
+
+            90% {
+                transform: translateY(-80%);
+            }
+
+            100% {
+                transform: translateY(-80%);
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes cardMove {
+
+            0%,
+            15% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            25%,
+            45% {
+                transform: translateX(115%);
+                opacity: 1;
+            }
+
+            55%,
+            80% {
+                transform: translateX(230%);
+                opacity: 1;
+            }
+
+            90%,
+            100% {
+                transform: translateX(230%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes barGrow1 {
+
+            0%,
+            100% {
+                height: 30%;
+            }
+
+            50% {
+                height: 80%;
+            }
+        }
+
+        @keyframes barGrow2 {
+
+            0%,
+            100% {
+                height: 50%;
+            }
+
+            50% {
+                height: 95%;
+            }
+        }
+
+        @keyframes barGrow3 {
+
+            0%,
+            100% {
+                height: 20%;
+            }
+
+            50% {
+                height: 75%;
+            }
+        }
+
+        @keyframes barGrow4 {
+
+            0%,
+            100% {
+                height: 60%;
+            }
+
+            50% {
+                height: 30%;
+            }
+        }
+
+        @keyframes ballDrop {
+            0% {
+                top: 10%;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+                top: 10%;
+            }
+
+            30% {
+                top: 40%;
+                opacity: 1;
+            }
+
+            40% {
+                top: 40%;
+                opacity: 1;
+            }
+
+            60% {
+                top: 65%;
+                opacity: 1;
+            }
+
+            70% {
+                top: 65%;
+                opacity: 1;
+            }
+
+            90% {
+                top: 90%;
+                opacity: 0;
+            }
+
+            100% {
+                top: 90%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulsePill {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
+            }
+        }
+
+        @keyframes pulsePillBlue {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+            }
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes floatUpDownDelayed {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bg-grid {
+            isolation: isolate;
+        }
+
+        .bg-grid::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .grid-fade-bottom::before {
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+
+        .text-gradient-white {
+            background: linear-gradient(135deg, #ffffff 0%, #a0a5b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 50%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes marquee-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .animate-marquee-left {
+            animation: marquee-left 40s linear infinite;
+            width: max-content;
+        }
+
+        .animate-marquee-right {
+            animation: marquee-right 40s linear infinite;
+            width: max-content;
+        }
+
+        /* Fairy particles CSS */
+        .fairy {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 0.4vw;
+            height: 0.4vw;
+            margin: -0.2vw 0 0 9.8vw;
+            animation: ease 200s alternate infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .fairy::before,
+        .fairy::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: -10vw;
+            filter: blur(2px);
+        }
+
+        .fairy::before {
+            background: transparent;
+            opacity: 0.4;
+            animation: drift ease alternate infinite;
+        }
+
+        .fairy::after {
+            background: #BCCFFF;
+            opacity: 0;
+            box-shadow: 0 0 0vw 0vw #BCCFFF;
+            animation: drift ease alternate infinite, flash ease infinite;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes flash {
+
+            0%,
+            30%,
+            100% {
+                opacity: 0;
+                box-shadow: 0 0 0vw 0vw #BCCFFF;
+            }
+
+            5% {
+                opacity: 1;
+                box-shadow: 0 0 2vw 0.4vw #BCCFFF;
+            }
+        }
+
+        .fairy:nth-child(1) {
+            animation-name: move1;
+        }
+
+        .fairy:nth-child(1)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(1)::after {
+            animation-duration: 11s, 10758ms;
+            animation-delay: 0ms, 7588ms;
+        }
+
+        @keyframes move1 {
+            0% {
+                transform: translateX(-4vw) translateY(-9vh) scale(0.45);
+            }
+
+            100% {
+                transform: translateX(-48vw) translateY(28vh) scale(0.79);
+            }
+        }
+
+        .fairy:nth-child(2) {
+            animation-name: move2;
+        }
+
+        .fairy:nth-child(2)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(2)::after {
+            animation-duration: 16s, 10258ms;
+            animation-delay: 0ms, 3012ms;
+        }
+
+        @keyframes move2 {
+            0% {
+                transform: translateX(6vw) translateY(5vh) scale(0.37);
+            }
+
+            100% {
+                transform: translateX(42vw) translateY(28vh) scale(0.41);
+            }
+        }
+
+        .fairy:nth-child(3) {
+            animation-name: move3;
+        }
+
+        .fairy:nth-child(3)::before {
+            animation-duration: 18s;
+        }
+
+        .fairy:nth-child(3)::after {
+            animation-duration: 18s, 9791ms;
+            animation-delay: 0ms, 4740ms;
+        }
+
+        @keyframes move3 {
+            0% {
+                transform: translateX(-21vw) translateY(33vh) scale(0.47);
+            }
+
+            100% {
+                transform: translateX(10vw) translateY(-8vh) scale(0.92);
+            }
+        }
+
+        .fairy:nth-child(4) {
+            animation-name: move4;
+        }
+
+        .fairy:nth-child(4)::before {
+            animation-duration: 12s;
+        }
+
+        .fairy:nth-child(4)::after {
+            animation-duration: 12s, 8034ms;
+            animation-delay: 0ms, 3665ms;
+        }
+
+        @keyframes move4 {
+            0% {
+                transform: translateX(-37vw) translateY(4vh) scale(0.5);
+            }
+
+            100% {
+                transform: translateX(20vw) translateY(-33vh) scale(0.78);
+            }
+        }
+
+        .fairy:nth-child(5) {
+            animation-name: move5;
+        }
+
+        .fairy:nth-child(5)::before {
+            animation-duration: 18s;
+        }
+
+        .fairy:nth-child(5)::after {
+            animation-duration: 18s, 9982ms;
+            animation-delay: 0ms, 2030ms;
+        }
+
+        @keyframes move5 {
+            0% {
+                transform: translateX(0vw) translateY(33vh) scale(0.96);
+            }
+
+            100% {
+                transform: translateX(7vw) translateY(-26vh) scale(0.94);
+            }
+        }
+
+        .fairy:nth-child(6) {
+            animation-name: move6;
+        }
+
+        .fairy:nth-child(6)::before {
+            animation-duration: 17s;
+        }
+
+        .fairy:nth-child(6)::after {
+            animation-duration: 17s, 10091ms;
+            animation-delay: 0ms, 5480ms;
+        }
+
+        @keyframes move6 {
+            0% {
+                transform: translateX(-39vw) translateY(25vh) scale(0.5);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(-13vh) scale(0.98);
+            }
+        }
+
+        .fairy:nth-child(7) {
+            animation-name: move7;
+        }
+
+        .fairy:nth-child(7)::before {
+            animation-duration: 9s;
+        }
+
+        .fairy:nth-child(7)::after {
+            animation-duration: 9s, 10580ms;
+            animation-delay: 0ms, 4415ms;
+        }
+
+        @keyframes move7 {
+            0% {
+                transform: translateX(4vw) translateY(7vh) scale(0.4);
+            }
+
+            100% {
+                transform: translateX(0vw) translateY(6vh) scale(0.63);
+            }
+        }
+
+        .fairy:nth-child(8) {
+            animation-name: move8;
+        }
+
+        .fairy:nth-child(8)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(8)::after {
+            animation-duration: 11s, 9302ms;
+            animation-delay: 0ms, 3642ms;
+        }
+
+        @keyframes move8 {
+            0% {
+                transform: translateX(5vw) translateY(-24vh) scale(0.72);
+            }
+
+            100% {
+                transform: translateX(-22vw) translateY(4vh) scale(0.27);
+            }
+        }
+
+        .fairy:nth-child(9) {
+            animation-name: move9;
+        }
+
+        .fairy:nth-child(9)::before {
+            animation-duration: 14s;
+        }
+
+        .fairy:nth-child(9)::after {
+            animation-duration: 14s, 5697ms;
+            animation-delay: 0ms, 4357ms;
+        }
+
+        @keyframes move9 {
+            0% {
+                transform: translateX(-7vw) translateY(50vh) scale(0.63);
+            }
+
+            100% {
+                transform: translateX(-23vw) translateY(-44vh) scale(0.42);
+            }
+        }
+
+        .fairy:nth-child(10) {
+            animation-name: move10;
+        }
+
+        .fairy:nth-child(10)::before {
+            animation-duration: 14s;
+        }
+
+        .fairy:nth-child(10)::after {
+            animation-duration: 14s, 6034ms;
+            animation-delay: 0ms, 7729ms;
+        }
+
+        @keyframes move10 {
+            0% {
+                transform: translateX(39vw) translateY(-12vh) scale(0.91);
+            }
+
+            100% {
+                transform: translateX(-47vw) translateY(40vh) scale(0.36);
+            }
+        }
+
+        .fairy:nth-child(11) {
+            animation-name: move11;
+        }
+
+        .fairy:nth-child(11)::before {
+            animation-duration: 9s;
+        }
+
+        .fairy:nth-child(11)::after {
+            animation-duration: 9s, 6968ms;
+            animation-delay: 0ms, 7365ms;
+        }
+
+        @keyframes move11 {
+            0% {
+                transform: translateX(-40vw) translateY(-3vh) scale(0.74);
+            }
+
+            100% {
+                transform: translateX(43vw) translateY(38vh) scale(0.72);
+            }
+        }
+
+        .fairy:nth-child(12) {
+            animation-name: move12;
+        }
+
+        .fairy:nth-child(12)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(12)::after {
+            animation-duration: 16s, 9077ms;
+            animation-delay: 0ms, 2115ms;
+        }
+
+        @keyframes move12 {
+            0% {
+                transform: translateX(-39vw) translateY(24vh) scale(0.83);
+            }
+
+            100% {
+                transform: translateX(38vw) translateY(-31vh) scale(0.72);
+            }
+        }
+
+        .fairy:nth-child(13) {
+            animation-name: move13;
+        }
+
+        .fairy:nth-child(13)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(13)::after {
+            animation-duration: 13s, 10543ms;
+            animation-delay: 0ms, 7111ms;
+        }
+
+        @keyframes move13 {
+            0% {
+                transform: translateX(-22vw) translateY(25vh) scale(0.35);
+            }
+
+            100% {
+                transform: translateX(43vw) translateY(4vh) scale(0.93);
+            }
+        }
+
+        .fairy:nth-child(14) {
+            animation-name: move14;
+        }
+
+        .fairy:nth-child(14)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(14)::after {
+            animation-duration: 15s, 6930ms;
+            animation-delay: 0ms, 3394ms;
+        }
+
+        @keyframes move14 {
+            0% {
+                transform: translateX(17vw) translateY(15vh) scale(0.57);
+            }
+
+            100% {
+                transform: translateX(-25vw) translateY(7vh) scale(0.59);
+            }
+        }
+
+        .fairy:nth-child(15) {
+            animation-name: move15;
+        }
+
+        .fairy:nth-child(15)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(15)::after {
+            animation-duration: 15s, 7439ms;
+            animation-delay: 0ms, 5284ms;
+        }
+
+        @keyframes move15 {
+            0% {
+                transform: translateX(-19vw) translateY(-30vh) scale(0.47);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(40vh) scale(0.63);
+            }
+        }
+
+        .fairy:nth-child(16) {
+            animation-name: move16;
+        }
+
+        .fairy:nth-child(16)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(16)::after {
+            animation-duration: 13s, 6003ms;
+            animation-delay: 0ms, 6802ms;
+        }
+
+        @keyframes move16 {
+            0% {
+                transform: translateX(-43vw) translateY(-18vh) scale(0.59);
+            }
+
+            100% {
+                transform: translateX(48vw) translateY(25vh) scale(0.27);
+            }
+        }
+
+        .fairy:nth-child(17) {
+            animation-name: move17;
+        }
+
+        .fairy:nth-child(17)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(17)::after {
+            animation-duration: 11s, 8119ms;
+            animation-delay: 0ms, 5761ms;
+        }
+
+        @keyframes move17 {
+            0% {
+                transform: translateX(6vw) translateY(-17vh) scale(0.46);
+            }
+
+            100% {
+                transform: translateX(-28vw) translateY(-47vh) scale(0.42);
+            }
+        }
+
+        .fairy:nth-child(18) {
+            animation-name: move18;
+        }
+
+        .fairy:nth-child(18)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(18)::after {
+            animation-duration: 15s, 7715ms;
+            animation-delay: 0ms, 1324ms;
+        }
+
+        @keyframes move18 {
+            0% {
+                transform: translateX(-6vw) translateY(-4vh) scale(0.29);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(10vh) scale(0.73);
+            }
+        }
+
+        .fairy:nth-child(19) {
+            animation-name: move19;
+        }
+
+        .fairy:nth-child(19)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(19)::after {
+            animation-duration: 16s, 5296ms;
+            animation-delay: 0ms, 3038ms;
+        }
+
+        @keyframes move19 {
+            0% {
+                transform: translateX(48vw) translateY(-41vh) scale(0.48);
+            }
+
+            100% {
+                transform: translateX(6vw) translateY(-14vh) scale(0.58);
+            }
+        }
+
+        .fairy:nth-child(20) {
+            animation-name: move20;
+        }
+
+        .fairy:nth-child(20)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(20)::after {
+            animation-duration: 13s, 10475ms;
+            animation-delay: 0ms, 2154ms;
+        }
+
+        @keyframes move20 {
+            0% {
+                transform: translateX(-35vw) translateY(-23vh) scale(0.54);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(3vh) scale(0.73);
+            }
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+
+    <!-- Fairy particles -->
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+
+    
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex-shrink-0 flex items-center">
+                    <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-10 w-auto">
+                </a>
+                
+                <nav class="hidden md:flex gap-6 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Home</a>
+                    <a href="/sobre/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Sobre Nós</a>
+                    <a href="/solucoes/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Soluções</a>
+                    <a href="/parceiros/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Parceiros</a>
+                    <a href="/cases/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Cases</a>
+                    <a href="/blog/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Blog</a>
+                    <a href="/contato/" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contato</a>
+                    <a href="/contato/" class="ml-4 inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold rounded-full text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary shadow-lg shadow-primary/40 transition-all glow-effect">
+                        Falar com Especialista
+                    </a>
+                </nav>
+
+                <button id="mobileMenuBtn" class="md:hidden text-white flex items-center p-2">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileNav" class="hidden md:hidden bg-[#0B0F19] border-b border-white/10 absolute top-20 left-0 w-full shadow-xl">
+            <nav class="flex flex-col px-4 py-6 gap-4">
+                <a href="/" class="text-base font-medium text-slate-300 hover:text-white">Home</a>
+                <a href="/sobre/" class="text-base font-medium text-slate-300 hover:text-white">Sobre Nós</a>
+                <a href="/solucoes/" class="text-base font-medium text-slate-300 hover:text-white">Soluções</a>
+                <a href="/parceiros/" class="text-base font-medium text-slate-300 hover:text-white">Parceiros</a>
+                <a href="/cases/" class="text-base font-medium text-slate-300 hover:text-white">Cases</a>
+                <a href="/blog/" class="text-base font-medium text-slate-300 hover:text-white">Blog</a>
+                <a href="/contato/" class="text-base font-medium text-slate-300 hover:text-white">Contato</a>
+                <a href="/contato/" class="mt-4 w-full text-center inline-flex items-center justify-center px-6 py-3 text-base font-bold rounded-full text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary shadow-lg shadow-primary/40">
+                    Falar com Especialista
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="overflow-x-hidden">
+
+        <section class="pt-32 pb-16 relative overflow-hidden bg-gradient-to-b from-background-dark to-[#090C14]">
+            <img src="../assets/bg.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-[0.15] z-0 pointer-events-none mix-blend-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 border-b border-white/5 pb-16">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider px-3 py-1 border border-primary/20 rounded-full inline-block mb-4">Ecossistema</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Nossas <span class="text-gradient-blue">Soluções</span></h1>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Tudo que o seu negócio precisa, do primeiro clique ao fechamento da venda via CRM.</p>
+            </div>
+        </section>
+
+        <!-- Soluções Detalhadas -->
+        <section class="py-24 relative overflow-hidden text-left bg-gradient-to-b from-[#090C14] to-background-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="space-y-12">
+
+                    <!-- Servico 1 -->
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 flex flex-col md:flex-row gap-12 items-center hover:border-primary/30 transition-colors">
+                        <div class="w-full lg:w-1/2 flex-1 relative z-20 pr-0 lg:pr-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">Gestão de <span class="text-gradient-blue">Tráfego Pago</span></h2>
+                            <p class="text-slate-400 text-lg mb-6 leading-relaxed">Colocamos sua marca na frente do seu cliente ideal quando ele procura por sua solução. Estruturamos campanhas focadas em escala e ROI previsível no Google Ads, Meta Ads e TikTok.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Captação de leads qualificados</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Aumento de faturamento em e-commerce</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Campanhas para negócios locais</li>
+                            </ul>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex-1 flex justify-center items-center" data-aos="zoom-in">
+                            <!-- UI Animation: Meta Ads Manager -->
+                        <div class="relative w-full max-w-md aspect-video" aria-hidden="true" data-aos="zoom-in">
+                            <!-- Floating Badge -->
+                            <div class="absolute -top-4 -right-4 z-30 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-light font-bold text-[10px] md:text-xs px-3 py-2 rounded-full shadow-lg flex items-center gap-2"
+                                style="animation: pulsePill 3s infinite;">
+                                <span class="material-symbols-outlined text-[16px]">trending_up</span> ROAS Escalonado
+                            </div>
+
+                            <!-- Mini Card 2 (CPA) -->
+                            <div class="absolute -bottom-6 -left-6 z-40 bg-[#1F2937]/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-2xl flex items-center gap-3 lg:scale-100 scale-90"
+                                style="animation: floatUpDownDelayed 5s ease-in-out infinite;">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500/20 flex flex-col items-center justify-center">
+                                    <span class="material-symbols-outlined text-green-400 text-lg">trending_down</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Custo
+                                        por Aquisição</span>
+                                    <span class="text-white font-bold text-lg">R$ 8,50</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="w-full h-full bg-[#1C2126] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.3)] flex flex-col relative">
+                                <!-- Top Bar -->
+                                <div class="h-8 bg-[#232A31] border-b border-white/5 flex items-center px-3 gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[14px]">campaign</span>
+                                    <div class="w-24 h-2 bg-white/20 rounded-full"></div>
+                                    <div class="ml-auto w-4 h-4 rounded-full bg-white/10"></div>
+                                </div>
+                                <!-- Body -->
+                                <div class="flex-1 flex">
+                                    <!-- Sidebar -->
+                                    <div
+                                        class="w-10 bg-[#232A31] border-r border-white/5 flex flex-col items-center py-3 gap-3">
+                                        <div class="w-5 h-5 rounded bg-primary/20 border border-primary/30"></div>
+                                        <div class="w-4 h-4 rounded-full bg-white/10"></div>
+                                        <div class="w-4 h-4 rounded-full bg-white/10"></div>
+                                    </div>
+                                    <!-- Main Content -->
+                                    <div class="flex-1 p-3 flex flex-col gap-3">
+                                        <div class="flex gap-2">
+                                            <div
+                                                class="flex-1 h-12 bg-white/5 rounded-lg border border-white/5 p-2 flex flex-col justify-end">
+                                                <div class="w-12 h-1.5 bg-white/20 rounded-full mb-1.5"></div>
+                                                <div class="w-8 h-2 bg-primary rounded-full"></div>
+                                            </div>
+                                            <div
+                                                class="flex-1 h-12 bg-white/5 rounded-lg border border-white/5 p-2 flex flex-col justify-end">
+                                                <div class="w-16 h-1.5 bg-white/20 rounded-full mb-1.5"></div>
+                                                <div class="w-10 h-2 bg-green-400 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Chart -->
+                                        <div
+                                            class="flex-1 bg-white/5 rounded-lg border border-white/5 p-3 flex items-end gap-2">
+                                            <div class="flex-1 bg-primary/40 rounded-t-sm"
+                                                style="animation: barGrow1 3s ease-in-out infinite;"></div>
+                                            <div class="flex-1 bg-primary/40 rounded-t-sm"
+                                                style="animation: barGrow2 4s ease-in-out infinite;"></div>
+                                            <div class="flex-1 bg-primary border border-primary-light rounded-t-sm drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                                                style="animation: barGrow3 3.5s ease-in-out infinite;"></div>
+                                            <div class="flex-1 bg-primary/40 rounded-t-sm"
+                                                style="animation: barGrow4 4.5s ease-in-out infinite;"></div>
+                                            <div class="flex-1 bg-primary/40 rounded-t-sm"
+                                                style="animation: barGrow1 5s ease-in-out infinite;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Servico 2 -->
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 flex flex-col md:flex-row-reverse gap-12 items-center hover:border-primary/30 transition-colors">
+                        <div class="w-full lg:w-1/2 flex-1 relative z-20 pr-0 lg:pr-8 md:pl-8 md:pr-0">
+                            <h2 class="text-3xl font-bold text-white mb-4">Gestão de <span class="text-gradient-blue">Social Media</span></h2>
+                            <p class="text-slate-400 text-lg mb-6 leading-relaxed">Não somos apenas "postadores". Desenvolvemos um posicionamento estratégico nas redes sociais que aumenta sua autoridade, gera engajamento real e prepara o público para a compra.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Criação de linha editorial</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Design premium focado na marca</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Estratégia de engajamento e retenção</li>
+                            </ul>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex-1 flex justify-center items-center" data-aos="zoom-in">
+                            <!-- UI Animation: Social Feed Landscape -->
+                        <div class="relative w-full max-w-md aspect-video" aria-hidden="true" data-aos="zoom-in">
+                            <!-- Floating Badge -->
+                            <div class="absolute -bottom-4 -left-4 z-30 bg-purple-500/20 backdrop-blur-md border border-purple-500/30 text-purple-300 font-bold text-[10px] md:text-xs px-3 py-2 rounded-full shadow-lg flex items-center gap-2"
+                                style="animation: pulsePill 3s infinite; animation-delay: 1.5s;">
+                                <span class="material-symbols-outlined text-[16px]">favorite</span> Engajamento em Alta
+                            </div>
+
+                            <!-- Mini Card 2 (Novos Seguidores) -->
+                            <div class="absolute -top-6 -right-6 z-40 bg-[#111827]/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-2xl flex items-center gap-3 lg:scale-100 scale-90"
+                                style="animation: floatUpDown 4.5s ease-in-out infinite;">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-500/20 flex flex-col items-center justify-center">
+                                    <span class="material-symbols-outlined text-blue-400 text-lg">group_add</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Novo
+                                        Marco</span>
+                                    <span class="text-white font-bold text-lg">+10k Seg.</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="w-full h-full bg-[#111827] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.3)] flex flex-col relative grid grid-cols-3 gap-px bg-[#1F2937]">
+                                <!-- Post 1 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-purple-600/60 to-blue-500/60 transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 flex gap-1">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white"
+                                                style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                        </div>
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span
+                                                class="material-symbols-outlined text-[10px] text-white">chat_bubble</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Post 2 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-tr from-yellow-500/60 to-red-500/60 transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 flex gap-1">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white"
+                                                style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Post 3 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-tl from-slate-700 to-slate-800 transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute flex items-center justify-center inset-0 z-10"><span
+                                            class="material-symbols-outlined text-4xl text-white/50">play_circle</span>
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 flex gap-1 z-20">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white"
+                                                style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                        </div>
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white">send</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Post 4 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-cyan-600/60 to-blue-500/60 transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 flex gap-1">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white"
+                                                style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Post 5 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-[#1F2937] to-[#111827] transition-transform duration-700 group-hover:scale-110 flex flex-col items-center justify-center p-2 text-center">
+                                        <div class="w-3/4 h-1.5 bg-white/20 rounded mb-1"></div>
+                                        <div class="w-1/2 h-1.5 bg-white/20 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Post 6 -->
+                                <div class="bg-black relative overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-bl from-pink-500/60 to-orange-400/60 transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 flex gap-1">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[10px] text-white"
+                                                style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                        </div>
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                            <span
+                                                class="material-symbols-outlined text-[10px] text-white">chat_bubble</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Servico 3 -->
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 flex flex-col md:flex-row gap-12 items-center hover:border-primary/30 transition-colors">
+                        <div class="w-full lg:w-1/2 flex-1 relative z-20 pr-0 lg:pr-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">Desenvolvimento de <span class="text-gradient-blue">Landing Pages</span></h2>
+                            <p class="text-slate-400 text-lg mb-6 leading-relaxed">Velocidade, design persuasivo e foco total na ação. Criamos páginas de alta performance projetadas especificamente para transformar cliques em leads e vendas.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Copywriting focado em conversão</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Carregamento ultrarrápido</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Otimização Mobile-first</li>
+                            </ul>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex-1 flex justify-center items-center" data-aos="zoom-in">
+                            <!-- UI Animation: Landing Page Scroll -->
+                        <div class="relative w-full max-w-md aspect-video" aria-hidden="true" data-aos="zoom-in">
+                            <!-- Floating Badge -->
+                            <div class="absolute -top-4 -right-4 z-30 bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 font-bold text-[10px] md:text-xs px-3 py-2 rounded-full shadow-lg flex items-center gap-2"
+                                style="animation: pulsePill 3s infinite; animation-delay: 0.5s;">
+                                <span class="material-symbols-outlined text-[16px]">speed</span> Fast Loading
+                            </div>
+
+                            <!-- Mini Card 2 (Gráfico Conversão) -->
+                            <div class="absolute -bottom-4 -left-6 z-40 bg-[#111827]/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-2xl flex items-center gap-3 lg:scale-100 scale-90"
+                                style="animation: floatUpDownDelayed 4s ease-in-out infinite;">
+                                <div class="relative w-12 h-12 flex items-center justify-center">
+                                    <svg class="w-full h-full transform -rotate-90">
+                                        <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.1)" stroke-width="4"
+                                            fill="transparent" />
+                                        <circle cx="24" cy="24" r="20" stroke="#22c55e" stroke-width="4"
+                                            fill="transparent" stroke-dasharray="125" stroke-dashoffset="30"
+                                            class="stroke-current text-green-500" />
+                                    </svg>
+                                    <span class="absolute text-xs font-bold text-white">12%</span>
+                                </div>
+                                <div class="flex flex-col border-l border-white/10 pl-3">
+                                    <span
+                                        class="text-[10px] text-slate-300 font-bold uppercase tracking-wider">Conversão</span>
+                                    <span class="text-white font-bold text-sm">Em Alta</span>
+                                </div>
+                            </div>
+
+                            <div class="w-full h-full bg-surface-dark border border-white/10 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(34,197,94,0.3)] flex flex-col relative"
+                                aria-hidden="true">
+                                <!-- Browser Bar -->
+                                <div
+                                    class="h-6 bg-[#1f2937] border-b border-white/5 flex items-center px-2 gap-1.5 z-20 shadow-md">
+                                    <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                                    <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                    <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                                    <div class="ml-2 w-32 h-3 bg-white/10 rounded-sm"></div>
+                                </div>
+                                <!-- Webpage Content -->
+                                <div class="flex-1 relative overflow-hidden bg-white">
+                                    <div class="absolute inset-x-0 top-0 w-full"
+                                        style="animation: scrollPage 12s ease-in-out infinite;">
+                                        <!-- Hero -->
+                                        <div
+                                            class="h-24 bg-slate-900 flex flex-col items-center justify-center px-4 text-center">
+                                            <div class="w-4/5 h-2.5 bg-white/90 rounded-full mb-2"></div>
+                                            <div class="w-3/5 h-2.5 bg-white/90 rounded-full mb-4"></div>
+                                            <div class="w-20 h-5 bg-green-500 rounded text-center"></div>
+                                        </div>
+                                        <!-- Features Section -->
+                                        <div class="h-24 bg-slate-100 flex flex-wrap gap-2 p-3 justify-center">
+                                            <div class="w-[45%] h-8 bg-white rounded shadow-sm border border-slate-200">
+                                            </div>
+                                            <div class="w-[45%] h-8 bg-white rounded shadow-sm border border-slate-200">
+                                            </div>
+                                            <div class="w-[45%] h-8 bg-white rounded shadow-sm border border-slate-200">
+                                            </div>
+                                            <div class="w-[45%] h-8 bg-white rounded shadow-sm border border-slate-200">
+                                            </div>
+                                        </div>
+                                        <!-- Testimonial Section -->
+                                        <div
+                                            class="h-20 bg-white border-y border-slate-200 flex items-center justify-center p-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-slate-200 flex-shrink-0"></div>
+                                                <div>
+                                                    <div class="w-24 h-2 bg-slate-300 rounded mb-1.5"></div>
+                                                    <div class="w-16 h-2 bg-slate-200 rounded"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Footer / Final CTA -->
+                                        <div class="h-24 bg-slate-900 flex flex-col items-center justify-center">
+                                            <div
+                                                class="w-20 h-5 bg-green-500 rounded text-center shadow-[0_0_15px_rgba(34,197,94,0.5)] bg-gradient-to-r from-green-500 to-green-600">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Servico 4 -->
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 flex flex-col md:flex-row-reverse gap-12 items-center hover:border-primary/30 transition-colors">
+                        <div class="w-full lg:w-1/2 flex-1 relative z-20 pr-0 lg:pr-8 md:pl-8 md:pr-0">
+                            <h2 class="text-3xl font-bold text-white mb-4">Criação de <span class="text-gradient-blue">Criativos Ads</span></h2>
+                            <p class="text-slate-400 text-lg mb-6 leading-relaxed">Vídeos e imagens que realmente param a rolagem do seu potencial cliente. Entendemos a psicologia do consumidor para criar anúncios que instigam e convertem.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Roteiros que retêm a atenção</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Edição dinâmica e moderna</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Adaptação para todos os formatos (Reels, Stories, Feed)</li>
+                            </ul>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex-1 flex justify-center items-center" data-aos="zoom-in">
+                            <!-- UI Animation: Ad with CTA -->
+                        <div class="relative w-full max-w-md aspect-video" aria-hidden="true" data-aos="zoom-in">
+                            <!-- Floating Badge -->
+                            <div class="absolute -bottom-4 -right-4 z-30 bg-yellow-500/20 backdrop-blur-md border border-yellow-500/30 text-yellow-300 font-bold text-[10px] md:text-xs px-3 py-2 rounded-full shadow-lg flex items-center gap-2"
+                                style="animation: pulsePill 3s infinite; animation-delay: 1s;">
+                                <span class="material-symbols-outlined text-[16px]">ads_click</span> CTR Elevado
+                            </div>
+
+                            <!-- Mini Card 2 (Teste A/B Vencedor) -->
+                            <div class="absolute -top-6 -left-6 z-40 bg-gradient-to-br from-[#111827] to-[#1F2937]/90 backdrop-blur-md border border-yellow-500/20 rounded-xl p-3 shadow-2xl flex items-center gap-3 lg:scale-100 scale-90"
+                                style="animation: floatUpDown 5.5s ease-in-out infinite;">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-yellow-500/20 flex flex-col items-center justify-center">
+                                    <span class="material-symbols-outlined text-yellow-400 text-lg"
+                                        style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-yellow-400 font-bold uppercase tracking-wider">Teste
+                                        A/B</span>
+                                    <span class="text-white font-bold text-sm">Vencedor!</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="w-full h-full bg-surface-dark rounded-xl border border-white/10 overflow-hidden shadow-[0_0_40px_rgba(250,204,21,0.2)] flex relative">
+                                <!-- Ad Image/Video Area (Left Side) -->
+                                <div
+                                    class="w-1/2 h-full bg-gradient-to-br from-slate-800 to-[#111827] relative flex items-center justify-center overflow-hidden border-r border-white/5">
+                                    <div
+                                        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')]">
+                                    </div>
+                                    <div class="w-full p-4 text-center z-10">
+                                        <div
+                                            class="text-white font-bold text-[1.2rem] leading-tight mb-2 uppercase drop-shadow-md">
+                                            Venda<br /><span class="text-yellow-400">Todo Dia</span>
+                                        </div>
+                                        <div class="w-12 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+                                    </div>
+                                </div>
+                                <!-- Ad Text & Header (Right Side) -->
+                                <div class="w-1/2 h-full flex flex-col bg-[#090C14]">
+                                    <!-- Ad Header -->
+                                    <div class="p-3 border-b border-white/5 flex items-center gap-2">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-[8px] font-bold text-black flex-shrink-0">
+                                            IM</div>
+                                        <div class="flex-1">
+                                            <div class="w-16 h-1.5 bg-white/30 rounded mb-1"></div>
+                                            <div class="w-10 h-1 bg-white/10 rounded"></div>
+                                        </div>
+                                        <span
+                                            class="material-symbols-outlined text-[12px] text-slate-500">more_horiz</span>
+                                    </div>
+                                    <div class="flex-1 p-4 flex flex-col gap-2">
+                                        <div class="w-full h-1.5 bg-slate-400/50 rounded"></div>
+                                        <div class="w-4/5 h-1.5 bg-slate-400/50 rounded"></div>
+                                        <div class="w-3/5 h-1.5 bg-slate-400/50 rounded"></div>
+                                    </div>
+                                    <!-- Ad Bottom Bar (CTA) -->
+                                    <div
+                                        class="p-3 border-t border-white/10 flex items-center justify-between bg-[#111827]">
+                                        <div class="flex flex-col gap-1">
+                                            <div class="w-16 h-1.5 bg-slate-400 rounded"></div>
+                                            <div class="w-10 h-1.5 bg-white/60 rounded"></div>
+                                        </div>
+                                        <div class="px-3 py-1.5 bg-yellow-500 text-black text-[10px] uppercase font-bold rounded shadow-[0_0_15px_rgba(250,204,21,0.4)] transition-transform duration-300"
+                                            style="animation: pulsePill 2s infinite;">SAIBA MAIS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Servico 5: CRM e Automação Kommo -->
+                    <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/10 bg-gradient-to-br from-surface-dark to-[#0F172A] flex flex-col md:flex-row gap-12 items-center hover:border-primary/50 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+                        <div class="w-full lg:w-1/2 flex-1 relative z-20 pr-0 lg:pr-8">
+                            <div class="flex items-center gap-4 border border-white/10 bg-black/30 p-4 rounded-xl inline-flex mb-6 z-30 relative">
+                                <a href="https://www.kommo.com" target="_blank" class="hover:scale-105 transition-transform"><img src="../assets/Badge dark.svg" alt="Kommo Partner" class="h-8"></a>
+                                <div class="w-px h-8 bg-white/20"></div>
+                                <span class="text-sm font-bold text-white leading-tight">Implantação<br/>Certificada</span>
+                            </div>
+                            
+                            <h2 class="text-3xl font-bold text-white mb-4 z-30 relative">CRM Interno <span class="text-gradient-blue">(Automação com Kommo)</span></h2>
+                            <p class="text-slate-400 text-lg mb-4 leading-relaxed z-30 relative">Pare de perder vendas no WhatsApp por desorganização. Implementamos o Kommo CRM, o melhor software de vendas via mensageria do mundo, e estruturamos o funil perfeito para sua equipe comercial.</p>
+                            <p class="text-sm font-semibold text-primary mb-6 z-30 relative">Benefícios da parceria: implementação guiada, treinamento de equipe, suporte dedicado e automações avançadas de vendas.</p>
+                            <ul class="space-y-3 mb-8 z-30 relative">
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Chatbots inteligentes para qualificação rápida</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Centralização de WhatsApp, Instagram e Site</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-300"><span class="material-symbols-outlined text-green-400 text-[20px]">check_circle</span> Acompanhamento do vendedor em tempo real</li>
+                            </ul>
+                            
+                            <a href="/contato/" class="inline-flex items-center px-8 py-4 border border-primary text-white bg-primary hover:bg-primary-dark rounded-full transition-colors font-bold text-sm shadow-lg shadow-primary/30 glow-effect z-30 relative">Quero automatizar minhas vendas <span class="material-symbols-outlined ml-2 text-sm">rocket_launch</span></a>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex-1 flex justify-center items-center relative z-20" data-aos="zoom-in">
+                            <!-- UI Animation: Kanban CRM -->
+                        <div class="relative w-full max-w-md aspect-video" aria-hidden="true" data-aos="zoom-in">
+                            <!-- Floating Badge -->
+                            <div class="absolute -bottom-4 -right-4 z-30 bg-cyan-500/20 backdrop-blur-md border border-cyan-500/30 text-cyan-300 font-bold text-[10px] md:text-xs px-3 py-2 rounded-full shadow-lg flex items-center gap-2"
+                                style="animation: pulsePill 3s infinite; animation-delay: 2s;">
+                                <span class="material-symbols-outlined text-[16px]">autorenew</span> Follow-up
+                                Automático
+                            </div>
+
+                            <!-- Mini Card 2 (Notificação Lead) -->
+                            <div class="absolute -top-6 -left-4 z-40 bg-slate-800/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl flex items-center gap-3 lg:scale-100 scale-90"
+                                style="animation: floatUpDownDelayed 4.2s ease-in-out infinite;">
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary/20 flex flex-col items-center justify-center">
+                                        <span class="material-symbols-outlined text-primary text-lg">person</span>
+                                    </div>
+                                    <div
+                                        class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-slate-800 animate-ping">
+                                    </div>
+                                    <div
+                                        class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-slate-800">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Nova
+                                        Captação</span>
+                                    <span class="text-white font-bold text-sm">Lead Qualificado</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="w-full h-full bg-surface-dark border border-white/10 rounded-xl p-3 flex gap-2 overflow-hidden shadow-[0_0_40px_rgba(34,211,238,0.2)] relative">
+                                <!-- Col 1 -->
+                                <div class="flex-1 bg-white/5 rounded-lg p-2 flex flex-col gap-2 relative">
+                                    <div class="w-14 h-2 bg-slate-400 rounded mb-1"></div>
+                                    <!-- Moving Card -->
+                                    <div class="absolute top-8 left-2 right-2 h-[52px] md:h-14 bg-cyan-500/10 border border-cyan-500/30 rounded p-2 z-20 shadow-lg backdrop-blur-md"
+                                        style="animation: cardMove 6s infinite;">
+                                        <div class="w-full h-1.5 bg-cyan-400/50 rounded mb-2"></div>
+                                        <div class="w-1/2 h-1.5 bg-white/40 rounded"></div>
+                                    </div>
+                                    <!-- Static Cards -->
+                                    <div class="h-[52px] md:h-14 bg-transparent rounded p-0 z-10 flex-shrink-0"></div>
+                                    <div
+                                        class="h-[52px] md:h-14 bg-white/5 border border-white/5 rounded p-2 z-10 flex-shrink-0">
+                                        <div class="w-full h-1.5 bg-white/20 rounded mb-2"></div>
+                                        <div class="w-1/3 h-1.5 bg-white/10 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Col 2 -->
+                                <div class="flex-1 bg-white/5 rounded-lg p-2 flex flex-col gap-2">
+                                    <div class="w-16 h-2 bg-purple-400 rounded mb-1"></div>
+                                    <div
+                                        class="h-[52px] md:h-14 bg-white/5 border border-white/5 rounded p-2 flex-shrink-0">
+                                        <div class="w-full h-1.5 bg-white/20 rounded mb-2"></div>
+                                        <div class="w-2/3 h-1.5 bg-white/10 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Col 3 -->
+                                <div class="flex-1 bg-white/5 rounded-lg p-2 flex flex-col gap-2">
+                                    <div class="w-20 h-2 bg-green-400 rounded mb-1"></div>
+                                    <div
+                                        class="h-[52px] md:h-14 bg-white/5 border border-white/5 rounded p-2 flex-shrink-0">
+                                        <div class="w-full h-1.5 bg-white/20 rounded mb-2"></div>
+                                        <div class="w-1/2 h-1.5 bg-white/10 rounded"></div>
+                                    </div>
+                                    <div
+                                        class="h-[52px] md:h-14 bg-white/5 border border-white/5 rounded p-2 flex-shrink-0">
+                                        <div class="w-full h-1.5 bg-white/20 rounded mb-2"></div>
+                                        <div class="w-3/4 h-1.5 bg-white/10 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-24 relative overflow-hidden bg-[#090C14] border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Outras Tecnologias que utilizamos -->
+                <div class="text-center mt-20">
+                    <h3 class="text-2xl font-bold text-white mb-8">Outras Tecnologias que utilizamos</h3>
+                    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70">
+                        <div class="text-xl font-bold text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-3xl">campaign</span> Google Ads</div>
+                        <div class="text-xl font-bold text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-3xl">share</span> Meta Ads</div>
+                        <div class="text-xl font-bold text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-3xl">shopping_bag</span> Nuvemshop</div>
+                        <div class="text-xl font-bold text-slate-300 flex items-center gap-2"><span class="material-symbols-outlined text-3xl">storefront</span> Shopify</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<a href="https://api.whatsapp.com/send/?phone=5534999049299&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+saber+mais.&type=phone_number&app_absent=0" target="_blank" aria-label="Atendimento via WhatsApp"
+        class="fixed bottom-6 right-6 z-[60] flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:scale-110 transition-transform duration-300"
+        style="animation: pulsePill 2s infinite;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8 fill-white">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <footer
+        class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark pt-16 pb-8">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-10 w-auto opacity-90">
+                <p class="text-slate-400 text-sm">
+                    Especialistas em Vendas Online.<br />
+                    Atendimento em todo Brasil.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6 opacity-70">
+                <!-- Social Icons via Material Symbols or custom SVGs -->
+                <a href="#" class="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-white/5 pt-8">
+            <p class="text-slate-500 text-xs text-center font-medium">
+                © 2026 Insider Mídia. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+    </script>
+    <script>
+        (function () {
+            'use strict';
+
+            function initCardSpotlight(card) {
+                const oldSpotlight = card.querySelector('.card-spotlight');
+                if (oldSpotlight) oldSpotlight.remove();
+
+                const root = getComputedStyle(document.documentElement);
+                const colorR = root.getPropertyValue('--spotlight-color-r').trim();
+                const colorG = root.getPropertyValue('--spotlight-color-g').trim();
+                const colorB = root.getPropertyValue('--spotlight-color-b').trim();
+                const intensity1 = root.getPropertyValue('--spotlight-intensity-1').trim();
+                const intensity2 = root.getPropertyValue('--spotlight-intensity-2').trim();
+                const intensity3 = root.getPropertyValue('--spotlight-intensity-3').trim();
+                const size = root.getPropertyValue('--spotlight-size').trim();
+                const blur = root.getPropertyValue('--spotlight-blur').trim();
+                const speed = parseFloat(root.getPropertyValue('--spotlight-speed').trim());
+                const blend = root.getPropertyValue('--spotlight-blend').trim();
+                const zIndex = root.getPropertyValue('--spotlight-z').trim();
+
+                const spotlight = document.createElement('div');
+                spotlight.className = 'card-spotlight';
+                spotlight.style.cssText = `
+            position: absolute;
+            width: ${size};
+            height: ${size};
+            background: radial-gradient(
+                circle, 
+                rgba(${colorR}, ${colorG}, ${colorB}, ${intensity1}) 0%, 
+                rgba(${colorR}, ${colorG}, ${colorB}, ${intensity2}) 30%, 
+                rgba(${colorR}, ${colorG}, ${colorB}, ${intensity3}) 50%, 
+                transparent 70%
+            );
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: ${zIndex};
+            filter: blur(${blur});
+            transform: translate(-50%, -50%);
+            mix-blend-mode: ${blend};
+        `;
+
+                card.style.position = 'relative';
+                card.style.overflow = 'visible';
+                card.appendChild(spotlight);
+
+                let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0, isInside = false, animationId = null;
+
+                function animate() {
+                    if (!isInside) return;
+                    currentX += (mouseX - currentX) * speed;
+                    currentY += (mouseY - currentY) * speed;
+                    spotlight.style.left = currentX + 'px';
+                    spotlight.style.top = currentY + 'px';
+                    animationId = requestAnimationFrame(animate);
+                }
+
+                card.addEventListener('mousemove', function (e) {
+                    const rect = card.getBoundingClientRect();
+                    mouseX = e.clientX - rect.left;
+                    mouseY = e.clientY - rect.top;
+                    if (!isInside) {
+                        isInside = true;
+                        currentX = mouseX;
+                        currentY = mouseY;
+                        spotlight.style.opacity = '1';
+                        animate();
+                    }
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    isInside = false;
+                    spotlight.style.opacity = '0';
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                        animationId = null;
+                    }
+                });
+            }
+
+            function init() {
+                const cards = document.querySelectorAll('.glass-card, .spotlight-card');
+                cards.forEach(card => initCardSpotlight(card));
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    setTimeout(init, 300);
+                });
+            } else {
+                setTimeout(init, 300);
+            }
+        })();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('mobileNav');
+            const icon = btn?.querySelector('.material-symbols-outlined');
+            if(btn && nav && icon) {
+                btn.addEventListener('click', () => {
+                    nav.classList.toggle('hidden');
+                    icon.textContent = nav.classList.contains('hidden') ? 'close' : 'menu';
+                });
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SITE = 'https://insider-midia.vercel.app';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+interface Props { post: CollectionEntry<'blog'> }
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const fmt = (d: Date) => d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+
+const description = post.data.excerpt ?? post.data.subtitle ?? post.data.title;
+const ogImage = post.data.cover.startsWith('http') ? post.data.cover : `${SITE}${post.data.cover}`;
+const canonicalURL = `${SITE}/blog/${post.slug}/`;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: description,
+  image: ogImage,
+  datePublished: post.data.date.toISOString(),
+  dateModified: post.data.date.toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: post.data.author,
+    url: SITE,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Insider Mídia',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE}/assets/INSIDER%20-%20logo%20branca.png`,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+});
+---
+<BaseLayout
+  title={`${post.data.title} | Insider Mídia`}
+  current="blog"
+  description={description}
+  cover={post.data.cover}
+  type="article"
+  publishedTime={post.data.date.toISOString()}
+  articleAuthor={post.data.author}
+  articleSection={post.data.category}
+>
+  <script type="application/ld+json" set:html={jsonLd} slot="head" />
+
+  <article>
+    <header class="relative">
+      <div class="aspect-[21/9] md:aspect-[21/8] w-full overflow-hidden bg-surface-dark">
+        <img src={post.data.cover} alt={post.data.title} class="w-full h-full object-cover opacity-70" />
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/40 to-background-dark"></div>
+      </div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40 relative">
+        <a href="/blog/" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-6">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Voltar para o blog
+        </a>
+        <span class="inline-block bg-primary/20 text-primary-light text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">{post.data.category}</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
+        {post.data.subtitle && <p class="text-lg md:text-xl text-slate-300 mb-6">{post.data.subtitle}</p>}
+        <div class="text-sm text-slate-500 border-b border-white/10 pb-6">
+          {post.data.author} · {fmt(post.data.date)}
+        </div>
+      </div>
+    </header>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="prose-insider">
+        <Content />
+      </div>
+
+      <div class="mt-16 glass-card rounded-2xl p-8 text-center">
+        <h3 class="text-2xl font-bold mb-3">Quer resultados como esse?</h3>
+        <p class="text-slate-400 mb-6">Fale com um especialista da Insider Mídia.</p>
+        <a href="/contato/" class="inline-flex items-center justify-center px-8 py-3 text-sm font-bold rounded-full text-white bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary shadow-lg shadow-primary/40 glow-effect">
+          Falar com Especialista
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,27 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# env
+.env
+.env.production
+.env.local
+
+# misc
+.DS_Store
+*.log
+
+# vercel
+.vercel
+
+# arquivos de trabalho local (não publicar)
+Atualizar arquivos/
+site antigo.html
+migrate.js
+output.txt
+parts.json
+layout.json
+.htaccess
