@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://insider-midia.vercel.app',
+  site: 'https://insider-khaki.vercel.app',
   integrations: [sitemap()],
   output: 'static',
   build: {

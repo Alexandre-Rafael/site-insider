@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Alexandre-Rafael/site-insider
   branch: main
-  base_url: https://insider-midia.vercel.app
+  base_url: https://insider-khaki.vercel.app
   auth_endpoint: api/auth
 
 publish_mode: editorial_workflow
@@ -12,9 +12,9 @@ public_folder: "/uploads"
 
 locale: "pt"
 
-site_url: https://insider-midia.vercel.app
-display_url: https://insider-midia.vercel.app
-logo_url: https://insider-midia.vercel.app/assets/INSIDER%20-%20logo%20branca.png
+site_url: https://insider-khaki.vercel.app
+display_url: https://insider-khaki.vercel.app
+logo_url: https://insider-khaki.vercel.app/assets/INSIDER%20-%20logo%20branca.png
 
 collections:
   - name: "blog"
