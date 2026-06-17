@@ -1,10 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
-import { CATEGORIAS } from '../../content/config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categorias = [...new Set(posts.map(p => p.data.category))].sort();
 
 const featured = posts[0];
 const rest = posts.slice(1);
@@ -19,12 +20,14 @@ const fmt = (d: Date) => d.toLocaleDateString('pt-BR', { day: '2-digit', month: 
       <p class="text-slate-400 max-w-2xl mx-auto">Cases reais, estratégias que funcionam e os bastidores de quem transforma visitantes em clientes.</p>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-2 mb-12" id="filtros">
-      <button data-cat="all" class="filtro-btn px-4 py-2 rounded-full text-sm font-medium border border-white/10 bg-white/5 hover:bg-primary/20 hover:border-primary transition-colors active-filter">Todos</button>
-      {CATEGORIAS.map((c) => (
-        <button data-cat={c} class="filtro-btn px-4 py-2 rounded-full text-sm font-medium border border-white/10 bg-white/5 hover:bg-primary/20 hover:border-primary transition-colors">{c}</button>
-      ))}
-    </div>
+    {categorias.length > 0 && (
+      <div class="flex flex-wrap justify-center gap-2 mb-12" id="filtros">
+        <button data-cat="all" class="filtro-btn px-4 py-2 rounded-full text-sm font-medium border border-white/10 bg-white/5 hover:bg-primary/20 hover:border-primary transition-colors active-filter">Todos</button>
+        {categorias.map((c) => (
+          <button data-cat={c} class="filtro-btn px-4 py-2 rounded-full text-sm font-medium border border-white/10 bg-white/5 hover:bg-primary/20 hover:border-primary transition-colors">{c}</button>
+        ))}
+      </div>
+    )}
 
     {featured && (
       <a href={`/blog/${featured.slug}/`} data-cat={featured.data.category} class="post-card group block mb-16">
