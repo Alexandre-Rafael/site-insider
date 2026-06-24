@@ -9,7 +9,6 @@ author: Insider Mídia
 date: 2026-06-24
 draft: false
 ---
-
 ## Sobre a empresa
 
 Fundada em 25 de janeiro de 1990, a Unimed Patos de Minas é uma das principais operadoras de planos de saúde da região, atendendo Patos de Minas e diversas cidades do entorno.
@@ -53,6 +52,8 @@ As principais ações incluíram:
 * Implementação de CRM para acompanhamento da jornada dos leads;
 * Estruturação de rastreamento avançado utilizando UTMs e parâmetros de origem;
 * Organização dos dados para facilitar análises e tomadas de decisão.
+
+![](/uploads/trafego-pago.jpg)
 
 ## Processo de otimização
 
