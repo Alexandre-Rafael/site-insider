@@ -42,6 +42,21 @@
                 { name: "excerpt", label: "Resumo para o Google (SEO)", widget: "text", required: false, hint: "Descrição curta exibida nos resultados de busca. Máx. 160 caracteres." },
                 { name: "cover", label: "Imagem de capa", widget: "image" },
                 { name: "logo", label: "Logo do cliente (opcional)", widget: "image", required: false, hint: "Aparece acima do título nos cards do blog" },
+                {
+                  name: "coverPosition", label: "Posição da imagem de capa", widget: "select", required: false,
+                  hint: "Ajuste o foco da imagem para não cortar a parte importante",
+                  options: [
+                    { label: "Centro (padrão)", value: "center" },
+                    { label: "Topo", value: "top" },
+                    { label: "Base", value: "bottom" },
+                    { label: "Esquerda", value: "left" },
+                    { label: "Direita", value: "right" },
+                    { label: "Topo esquerdo", value: "top left" },
+                    { label: "Topo direito", value: "top right" },
+                    { label: "Base esquerda", value: "bottom left" },
+                    { label: "Base direita", value: "bottom right" }
+                  ]
+                },
                 { name: "category", label: "Categoria", widget: "string", hint: "Ex: Tráfego Pago, Cases de Sucesso, Branding, Marketing Digital..." },
                 { name: "author", label: "Autor", widget: "string", default: "Insider Mídia" },
                 { name: "date", label: "Data de publicação", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" },

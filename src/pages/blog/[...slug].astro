@@ -69,7 +69,12 @@ const jsonLd = JSON.stringify({
 
     <!-- Imagem de capa -->
     <div class="w-full aspect-[21/9] rounded-xl overflow-hidden mb-6 bg-surface-dark">
-      <img src={post.data.cover} alt={post.data.title} class="w-full h-full object-cover" />
+      <img
+        src={post.data.cover}
+        alt={post.data.title}
+        class="w-full h-full object-cover"
+        style={`object-position: ${post.data.coverPosition ?? 'center'}`}
+      />
     </div>
 
     <!-- Barra: data + compartilhar -->

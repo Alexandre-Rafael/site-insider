@@ -53,12 +53,12 @@ const rest      = posts.slice(5);
         {featured && (
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 items-stretch" id="bloco-destaque">
 
-            <!-- Card destaque grande (sempre mostra imagem na base) -->
+            <!-- Card destaque grande -->
             <a
               href={`/blog/${featured.slug}/`}
               data-cat={featured.data.category}
               class="post-card group md:row-span-2 flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
-              style="min-height: 340px;"
+              style="min-height: 380px;"
             >
               <div class="p-6 flex flex-col flex-1 relative z-10">
                 {featured.data.logo
@@ -66,20 +66,25 @@ const rest      = posts.slice(5);
                   : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-4 block">{featured.data.category}</span>
                 }
                 <h2 class="text-xl md:text-2xl font-bold leading-snug group-hover:text-primary-light transition-colors">{featured.data.title}</h2>
-                <p class="text-xs text-slate-500 mt-5 pt-4 border-t border-white/10">{fmt(featured.data.date)}</p>
+                <p class="card-date text-xs text-slate-500 mt-5 pt-4 border-t border-white/10">{fmt(featured.data.date)}</p>
               </div>
-              <div class="h-52 md:h-60 overflow-hidden shrink-0">
-                <img src={featured.data.cover} alt={featured.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="overflow-hidden shrink-0" style="height: 220px;">
+                <img
+                  src={featured.data.cover}
+                  alt={featured.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  style={`object-position: ${featured.data.coverPosition ?? 'center'}`}
+                />
               </div>
             </a>
 
-            <!-- 4 cards pequenos com imagem no hover -->
+            <!-- 4 cards pequenos com fade in da imagem -->
             {sideCards.map((p) => (
               <a
                 href={`/blog/${p.slug}/`}
                 data-cat={p.data.category}
                 class="post-card group relative flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
-                style="min-height: 160px;"
+                style="min-height: 240px;"
               >
                 <!-- Texto -->
                 <div class="p-5 flex flex-col flex-1 relative z-10">
@@ -88,7 +93,7 @@ const rest      = posts.slice(5);
                     : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{p.data.category}</span>
                   }
                   <h3 class="text-sm font-bold leading-snug flex-1 group-hover:text-white transition-colors">{p.data.title}</h3>
-                  <p class="text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
+                  <p class="card-date text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
                 </div>
                 <!-- Seta -->
                 <div class="card-arrow absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
@@ -96,17 +101,22 @@ const rest      = posts.slice(5);
                     <path d="M2 12L12 2M12 2H5M12 2V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <!-- Imagem que sobe no hover -->
-                <div class="card-img absolute bottom-0 left-0 right-0" style="height:58%;">
+                <!-- Imagem com fade in -->
+                <div class="card-img absolute bottom-0 left-0 right-0" style="height: 60%;">
                   <div class="card-img-fade"></div>
-                  <img src={p.data.cover} alt={p.data.title} class="w-full h-full object-cover" />
+                  <img
+                    src={p.data.cover}
+                    alt={p.data.title}
+                    class="w-full h-full object-cover"
+                    style={`object-position: ${p.data.coverPosition ?? 'center'}`}
+                  />
                 </div>
               </a>
             ))}
           </div>
         )}
 
-        <!-- BLOCO 2: grid 3 colunas para os demais, também com hover -->
+        <!-- BLOCO 2: grid 3 colunas -->
         {rest.length > 0 && (
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="lista">
             {rest.map((p) => (
@@ -114,7 +124,7 @@ const rest      = posts.slice(5);
                 href={`/blog/${p.slug}/`}
                 data-cat={p.data.category}
                 class="post-card group relative flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
-                style="min-height: 180px;"
+                style="min-height: 220px;"
               >
                 <div class="p-5 flex flex-col flex-1 relative z-10">
                   {p.data.logo
@@ -122,16 +132,21 @@ const rest      = posts.slice(5);
                     : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">{p.data.category}</span>
                   }
                   <h3 class="text-sm font-bold leading-snug flex-1 group-hover:text-white transition-colors">{p.data.title}</h3>
-                  <p class="text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
+                  <p class="card-date text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
                 </div>
                 <div class="card-arrow absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
                   <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                     <path d="M2 12L12 2M12 2H5M12 2V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <div class="card-img absolute bottom-0 left-0 right-0" style="height:58%;">
+                <div class="card-img absolute bottom-0 left-0 right-0" style="height: 60%;">
                   <div class="card-img-fade"></div>
-                  <img src={p.data.cover} alt={p.data.title} class="w-full h-full object-cover" />
+                  <img
+                    src={p.data.cover}
+                    alt={p.data.title}
+                    class="w-full h-full object-cover"
+                    style={`object-position: ${p.data.coverPosition ?? 'center'}`}
+                  />
                 </div>
               </a>
             ))}
@@ -146,7 +161,6 @@ const rest      = posts.slice(5);
 </BaseLayout>
 
 <style is:global>
-  /* Select estilizado */
   .select-wrapper { position: relative; display: inline-flex; align-items: center; }
   .select-wrapper select {
     appearance: none; -webkit-appearance: none;
@@ -163,34 +177,29 @@ const rest      = posts.slice(5);
   .select-wrapper select option { background: #111827; color: #e2e8f0; }
   .select-arrow { position: absolute; right: 0.85rem; pointer-events: none; color: #94a3b8; display: flex; align-items: center; }
 
-  /* Imagem que sobe no hover */
+  /* Fade in da imagem */
   .card-img {
-    transform: translateY(100%);
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transition: opacity 0.4s ease;
     z-index: 5;
   }
-  .post-card:hover .card-img {
-    transform: translateY(0);
-  }
+  .post-card:hover .card-img { opacity: 1; }
 
   /* Gradiente de blend no topo da imagem */
   .card-img-fade {
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3rem;
+    top: 0; left: 0; right: 0; height: 4rem;
     background: linear-gradient(to bottom, #0B0F19 0%, transparent 100%);
-    z-index: 6;
-    pointer-events: none;
+    z-index: 6; pointer-events: none;
   }
 
+  /* Data some no hover */
+  .card-date { transition: opacity 0.25s ease; }
+  .post-card:hover .card-date { opacity: 0; }
+
   /* Seta aparece no hover */
-  .card-arrow {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .post-card:hover .card-arrow {
-    opacity: 1;
-  }
+  .card-arrow { opacity: 0; transition: opacity 0.3s ease; }
+  .post-card:hover .card-arrow { opacity: 1; }
 </style>
 
 <script is:inline>
@@ -198,7 +207,6 @@ const rest      = posts.slice(5);
   const cards = document.querySelectorAll('.post-card');
   const blocoDestaque = document.getElementById('bloco-destaque');
   const sem = document.getElementById('sem-resultados');
-
   if (select) {
     select.addEventListener('change', () => {
       const cat = select.value;

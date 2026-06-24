@@ -7,6 +7,7 @@ const blog = defineCollection({
     subtitle: z.string().optional(),
     excerpt: z.string().optional(),
     cover: z.string(),
+    coverPosition: z.string().optional(),
     logo: z.string().optional(),
     category: z.string(),
     author: z.string().default('Insider Mídia'),
