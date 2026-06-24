@@ -9,10 +9,8 @@ const categorias = [...new Set(posts.map(p => p.data.category))].sort();
 
 const fmt = (d: Date) => d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
 
-// Primeiro bloco: 1 destaque grande + 4 pequenos ao lado
 const featured  = posts[0];
 const sideCards = posts.slice(1, 5);
-// Demais
 const rest      = posts.slice(5);
 ---
 <BaseLayout title="Blog | Insider Mídia" current="blog" description="Insights, cases e bastidores da Insider Mídia.">
@@ -51,66 +49,89 @@ const rest      = posts.slice(5);
     {posts.length > 0 && (
       <div id="container-posts">
 
-        <!-- BLOCO 1: destaque (row-span-2) + 2x2 ao lado -->
+        <!-- BLOCO 1: destaque (row-span-2) + 2×2 ao lado -->
         {featured && (
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 items-stretch" id="bloco-destaque">
 
-            <!-- Card destaque grande -->
+            <!-- Card destaque grande (sempre mostra imagem na base) -->
             <a
               href={`/blog/${featured.slug}/`}
               data-cat={featured.data.category}
-              class="post-card group md:row-span-2 flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300"
+              class="post-card group md:row-span-2 flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
+              style="min-height: 340px;"
             >
-              <div class="p-6 flex flex-col flex-1">
+              <div class="p-6 flex flex-col flex-1 relative z-10">
                 {featured.data.logo
-                  ? <img src={featured.data.logo} alt="logo" class="h-7 w-auto object-contain mb-4 opacity-80" />
-                  : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-4">{featured.data.category}</span>
+                  ? <img src={featured.data.logo} alt="logo" class="h-7 w-auto object-contain mb-4 opacity-90" />
+                  : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-4 block">{featured.data.category}</span>
                 }
-                <h2 class="text-xl md:text-2xl font-bold leading-snug group-hover:text-primary-light transition-colors flex-1">{featured.data.title}</h2>
+                <h2 class="text-xl md:text-2xl font-bold leading-snug group-hover:text-primary-light transition-colors">{featured.data.title}</h2>
                 <p class="text-xs text-slate-500 mt-5 pt-4 border-t border-white/10">{fmt(featured.data.date)}</p>
               </div>
-              <div class="h-52 md:h-64 overflow-hidden shrink-0">
+              <div class="h-52 md:h-60 overflow-hidden shrink-0">
                 <img src={featured.data.cover} alt={featured.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             </a>
 
-            <!-- 4 cards pequenos em 2x2 -->
+            <!-- 4 cards pequenos com imagem no hover -->
             {sideCards.map((p) => (
               <a
                 href={`/blog/${p.slug}/`}
                 data-cat={p.data.category}
-                class="post-card group flex flex-col glass-card rounded-xl p-5 hover:border-primary/30 transition-all duration-300 min-h-[140px]"
+                class="post-card group relative flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
+                style="min-height: 160px;"
               >
-                {p.data.logo
-                  ? <img src={p.data.logo} alt="logo" class="h-6 w-auto object-contain mb-3 opacity-80" />
-                  : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{p.data.category}</span>
-                }
-                <h3 class="text-sm font-bold leading-snug group-hover:text-primary-light transition-colors flex-1">{p.data.title}</h3>
-                <p class="text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
+                <!-- Texto -->
+                <div class="p-5 flex flex-col flex-1 relative z-10">
+                  {p.data.logo
+                    ? <img src={p.data.logo} alt="logo" class="h-6 w-auto object-contain mb-3 opacity-90" />
+                    : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{p.data.category}</span>
+                  }
+                  <h3 class="text-sm font-bold leading-snug flex-1 group-hover:text-white transition-colors">{p.data.title}</h3>
+                  <p class="text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
+                </div>
+                <!-- Seta -->
+                <div class="card-arrow absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <!-- Imagem que sobe no hover -->
+                <div class="card-img absolute bottom-0 left-0 right-0" style="height:58%;">
+                  <div class="card-img-fade"></div>
+                  <img src={p.data.cover} alt={p.data.title} class="w-full h-full object-cover" />
+                </div>
               </a>
             ))}
           </div>
         )}
 
-        <!-- BLOCO 2: grid 3 colunas para os demais -->
+        <!-- BLOCO 2: grid 3 colunas para os demais, também com hover -->
         {rest.length > 0 && (
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="lista">
             {rest.map((p) => (
               <a
                 href={`/blog/${p.slug}/`}
                 data-cat={p.data.category}
-                class="post-card group flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300"
+                class="post-card group relative flex flex-col glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-300"
+                style="min-height: 180px;"
               >
-                <div class="aspect-[16/9] bg-surface-dark overflow-hidden shrink-0">
-                  <img src={p.data.cover} alt={p.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div class="p-5 flex flex-col flex-1">
+                <div class="p-5 flex flex-col flex-1 relative z-10">
                   {p.data.logo
-                    ? <img src={p.data.logo} alt="logo" class="h-5 w-auto object-contain mb-3 opacity-80" />
+                    ? <img src={p.data.logo} alt="logo" class="h-5 w-auto object-contain mb-3 opacity-90" />
                     : <span class="text-primary text-xs font-semibold uppercase tracking-widest mb-2 block">{p.data.category}</span>
                   }
-                  <h3 class="text-sm font-bold leading-snug group-hover:text-primary-light transition-colors flex-1">{p.data.title}</h3>
+                  <h3 class="text-sm font-bold leading-snug flex-1 group-hover:text-white transition-colors">{p.data.title}</h3>
                   <p class="text-xs text-slate-500 mt-4 pt-3 border-t border-white/10">{fmt(p.data.date)}</p>
+                </div>
+                <div class="card-arrow absolute bottom-4 right-4 z-20 w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="card-img absolute bottom-0 left-0 right-0" style="height:58%;">
+                  <div class="card-img-fade"></div>
+                  <img src={p.data.cover} alt={p.data.title} class="w-full h-full object-cover" />
                 </div>
               </a>
             ))}
@@ -125,40 +146,50 @@ const rest      = posts.slice(5);
 </BaseLayout>
 
 <style is:global>
-  .select-wrapper {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-  }
+  /* Select estilizado */
+  .select-wrapper { position: relative; display: inline-flex; align-items: center; }
   .select-wrapper select {
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: none; -webkit-appearance: none;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.12);
-    color: #e2e8f0;
-    font-size: 0.875rem;
-    font-weight: 500;
+    color: #e2e8f0; font-size: 0.875rem; font-weight: 500;
     font-family: 'Inter', sans-serif;
     padding: 0.6rem 2.5rem 0.6rem 1rem;
-    border-radius: 9999px;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-    min-width: 190px;
+    border-radius: 9999px; cursor: pointer; outline: none;
+    transition: border-color 0.2s, background 0.2s; min-width: 190px;
   }
   .select-wrapper select:hover,
-  .select-wrapper select:focus {
-    border-color: rgba(59,130,246,0.5);
-    background: rgba(59,130,246,0.08);
-  }
+  .select-wrapper select:focus { border-color: rgba(59,130,246,0.5); background: rgba(59,130,246,0.08); }
   .select-wrapper select option { background: #111827; color: #e2e8f0; }
-  .select-arrow {
+  .select-arrow { position: absolute; right: 0.85rem; pointer-events: none; color: #94a3b8; display: flex; align-items: center; }
+
+  /* Imagem que sobe no hover */
+  .card-img {
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+  }
+  .post-card:hover .card-img {
+    transform: translateY(0);
+  }
+
+  /* Gradiente de blend no topo da imagem */
+  .card-img-fade {
     position: absolute;
-    right: 0.85rem;
+    top: 0; left: 0; right: 0;
+    height: 3rem;
+    background: linear-gradient(to bottom, #0B0F19 0%, transparent 100%);
+    z-index: 6;
     pointer-events: none;
-    color: #94a3b8;
-    display: flex;
-    align-items: center;
+  }
+
+  /* Seta aparece no hover */
+  .card-arrow {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .post-card:hover .card-arrow {
+    opacity: 1;
   }
 </style>
 
@@ -177,7 +208,6 @@ const rest      = posts.slice(5);
         c.style.display = match ? '' : 'none';
         if (match) visible++;
       });
-      // Esconde o grid destaque se o card principal estiver filtrado
       if (blocoDestaque) {
         const anyVisible = [...blocoDestaque.querySelectorAll('.post-card')].some(c => c.style.display !== 'none');
         blocoDestaque.style.display = anyVisible ? '' : 'none';
