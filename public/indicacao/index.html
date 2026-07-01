@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Programa de Indicação — Insider Mídia</title>
+  <meta name="description" content="Indique um cliente para a Insider Mídia e ganhe R$ 500 a cada contrato fechado." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            "primary-dark": "#1D4ED8",
+            "primary-light": "#60A5FA",
+            "background-dark": "#0B0F19",
+            "surface-dark": "#111827",
+          },
+          fontFamily: { display: ["Inter", "sans-serif"], body: ["Inter", "sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0B0F19; color: #f1f5f9; }
+
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+    }
+
+    .text-gradient-blue {
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glow-effect { box-shadow: 0 0 40px rgba(59,130,246,0.35); }
+
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      color: #93C5FD;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 9999px;
+    }
+
+    .step-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .step-card:hover { border-color: rgba(59,130,246,0.3); }
+
+    .step-number {
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 9999px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #60A5FA;
+      font-weight: 800; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .rule-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+    }
+
+    /* Glow de fundo hero */
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(59,130,246,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float { animation: floatY 4s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR mínima -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background: rgba(11,15,25,0.85); backdrop-filter: blur(12px);">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-7 w-auto" />
+      </a>
+      <span class="badge-pill">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" style="animation: floatY 2s ease-in-out infinite;"></span>
+        Programa de Indicação
+      </span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 1 — HERO
+  ════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <div class="hero-glow"></div>
+
+    <!-- Linha superior com gradiente -->
+    <div class="divider absolute top-16 left-0 right-0"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 py-24 text-center">
+
+      <!-- Badge -->
+      <div class="badge-pill mx-auto mb-8">
+        <span class="material-symbols-outlined text-[15px]" style="font-variation-settings:'FILL' 1;">star</span>
+        Programa de Indicação Insider Mídia
+      </div>
+
+      <!-- Valor em destaque flutuante -->
+      <div class="float mb-8">
+        <div class="inline-flex items-center gap-3 glass-card px-8 py-5 rounded-2xl border border-primary/20">
+          <span class="material-symbols-outlined text-4xl text-primary-light" style="font-variation-settings:'FILL' 1;">payments</span>
+          <div class="text-left">
+            <p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Você recebe</p>
+            <p class="text-4xl font-extrabold text-gradient-blue leading-none">R$ 500</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Indique uma empresa.<br />
+        <span class="text-gradient-blue">Ganhe R$ 500.</span>
+      </h1>
+
+      <p class="text-lg text-slate-400 max-w-xl mx-auto mb-12 leading-relaxed">
+        Conhece alguma empresa que precisa de resultados reais no digital? Indique para a Insider Mídia e, quando o contrato for fechado, <strong class="text-slate-200">R$ 500 vão direto pra sua conta</strong>.
+      </p>
+
+      <!-- Como funciona — 3 passos -->
+      <div class="grid md:grid-cols-3 gap-4 text-left">
+        <div class="step-card">
+          <div class="step-number mb-4">1</div>
+          <h3 class="font-bold text-white mb-1">Indique</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Fale com um especialista da Insider e informe o nome e contato da empresa indicada.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number mb-4">2</div>
+          <h3 class="font-bold text-white mb-1">A Insider entra em contato</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Nossa equipe apresenta as soluções e conduz a negociação com a empresa indicada.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number mb-4">3</div>
+          <h3 class="font-bold text-white mb-1">Contrato fechado? Pague-se</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Assim que o contrato for assinado e o primeiro pagamento confirmado, você recebe R$ 500.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Linha inferior com gradiente -->
+    <div class="divider absolute bottom-0 left-0 right-0"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 2 — REGULAMENTO
+  ════════════════════════════════════════════ -->
+  <section class="py-24 relative overflow-hidden" style="background: #080c16;">
+    <!-- Glow sutil -->
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+
+      <!-- Título -->
+      <div class="text-center mb-14">
+        <div class="badge-pill mx-auto mb-6">
+          <span class="material-symbols-outlined text-[15px]">description</span>
+          Regulamento oficial
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+          Regras do <span class="text-gradient-blue">Programa</span>
+        </h2>
+        <p class="text-slate-400">Leia com atenção antes de participar.</p>
+      </div>
+
+      <!-- Blocos de regras -->
+      <div class="space-y-4">
+
+        <!-- Bloco: Quem pode indicar -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-blue-400 text-[18px]" style="font-variation-settings:'FILL' 1;">group</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Quem pode participar</h3>
+          </div>
+          <div class="space-y-2.5">
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">Qualquer pessoa física pode indicar: clientes atuais, ex-clientes, parceiros, amigos ou conhecidos.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">Não é necessário ser cliente da Insider para participar do programa.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-red-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">cancel</span>
+              <p class="text-sm text-slate-300">Colaboradores e sócios da Insider Mídia não são elegíveis.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco: Empresas elegíveis -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-blue-400 text-[18px]" style="font-variation-settings:'FILL' 1;">business</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Empresa indicada</h3>
+          </div>
+          <div class="space-y-2.5">
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">A empresa indicada não pode ser cliente ativo ou ter sido prospectada pela Insider nos últimos 6 meses.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">A indicação deve ser feita antes do primeiro contato da empresa com a Insider — indicações retroativas não são válidas.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">A empresa indicada deve ser um CNPJ ativo e fechar um contrato de serviço recorrente com a Insider Mídia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco: Pagamento -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-blue-400 text-[18px]" style="font-variation-settings:'FILL' 1;">account_balance_wallet</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Pagamento da recompensa</h3>
+          </div>
+          <div class="space-y-2.5">
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">O valor de <strong class="text-white">R$ 500,00</strong> é pago em uma única parcela via PIX, após a confirmação do primeiro pagamento da empresa indicada à Insider.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">O prazo para pagamento é de até <strong class="text-white">15 dias úteis</strong> após a confirmação do contrato.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">Não há limite de indicações — cada empresa fechada gera uma nova recompensa de R$ 500.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-red-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">cancel</span>
+              <p class="text-sm text-slate-300">Se a empresa indicada cancelar o contrato antes do primeiro pagamento, a recompensa não é devida.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco: Vigência -->
+        <div class="glass-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-blue-400 text-[18px]" style="font-variation-settings:'FILL' 1;">calendar_month</span>
+            </div>
+            <h3 class="font-bold text-white text-base">Vigência e condições gerais</h3>
+          </div>
+          <div class="space-y-2.5">
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">O programa está em vigor por tempo indeterminado. A Insider Mídia pode encerrá-lo ou alterar as condições com aviso prévio de 30 dias.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">A Insider Mídia se reserva o direito de recusar contratos que não se enquadrem no perfil de clientes atendidos, mesmo com indicação válida.</p>
+            </div>
+            <div class="rule-item">
+              <span class="material-symbols-outlined text-green-400 text-[18px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              <p class="text-sm text-slate-300">Em caso de múltiplas indicações da mesma empresa, apenas o primeiro indicador registrado receberá a recompensa.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /space-y-4 -->
+
+      <!-- Rodapé do regulamento -->
+      <div class="mt-12 text-center">
+        <div class="divider mb-8"></div>
+        <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-7 w-auto mx-auto mb-4 opacity-60" />
+        <p class="text-sm text-slate-500">© 2026 Insider Mídia. Patos de Minas — MG.</p>
+        <p class="text-xs text-slate-600 mt-1">Este regulamento pode ser atualizado a qualquer momento mediante comunicação prévia.</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
