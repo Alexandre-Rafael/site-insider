@@ -35,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <style>
+        html, body { overflow-x: hidden; }
         body { font-family: 'Inter', sans-serif; background: #0B0F19; color: #f1f5f9; }
 
         .glass-card {
@@ -82,10 +83,568 @@
             transition: transform 0.3s ease;
         }
         .video-card:hover .play-btn { transform: scale(1.1); }
+
+        @keyframes pulsePillBlue {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(59, 130, 246, 0.7); }
+        }
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes floatUpDownDelayed {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Fairy particles CSS */
+        .fairy {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 0.4vw;
+            height: 0.4vw;
+            margin: -0.2vw 0 0 9.8vw;
+            animation: ease 200s alternate infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .fairy::before,
+        .fairy::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: -10vw;
+            filter: blur(2px);
+        }
+
+        .fairy::before {
+            background: transparent;
+            opacity: 0.4;
+            animation: drift ease alternate infinite;
+        }
+
+        .fairy::after {
+            background: #BCCFFF;
+            opacity: 0;
+            box-shadow: 0 0 0vw 0vw #BCCFFF;
+            animation: drift ease alternate infinite, flash ease infinite;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes flash {
+
+            0%,
+            30%,
+            100% {
+                opacity: 0;
+                box-shadow: 0 0 0vw 0vw #BCCFFF;
+            }
+
+            5% {
+                opacity: 1;
+                box-shadow: 0 0 2vw 0.4vw #BCCFFF;
+            }
+        }
+
+        .fairy:nth-child(1) {
+            animation-name: move1;
+        }
+
+        .fairy:nth-child(1)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(1)::after {
+            animation-duration: 11s, 10758ms;
+            animation-delay: 0ms, 7588ms;
+        }
+
+        @keyframes move1 {
+            0% {
+                transform: translateX(-4vw) translateY(-9vh) scale(0.45);
+            }
+
+            100% {
+                transform: translateX(-48vw) translateY(28vh) scale(0.79);
+            }
+        }
+
+        .fairy:nth-child(2) {
+            animation-name: move2;
+        }
+
+        .fairy:nth-child(2)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(2)::after {
+            animation-duration: 16s, 10258ms;
+            animation-delay: 0ms, 3012ms;
+        }
+
+        @keyframes move2 {
+            0% {
+                transform: translateX(6vw) translateY(5vh) scale(0.37);
+            }
+
+            100% {
+                transform: translateX(42vw) translateY(28vh) scale(0.41);
+            }
+        }
+
+        .fairy:nth-child(3) {
+            animation-name: move3;
+        }
+
+        .fairy:nth-child(3)::before {
+            animation-duration: 18s;
+        }
+
+        .fairy:nth-child(3)::after {
+            animation-duration: 18s, 9791ms;
+            animation-delay: 0ms, 4740ms;
+        }
+
+        @keyframes move3 {
+            0% {
+                transform: translateX(-21vw) translateY(33vh) scale(0.47);
+            }
+
+            100% {
+                transform: translateX(10vw) translateY(-8vh) scale(0.92);
+            }
+        }
+
+        .fairy:nth-child(4) {
+            animation-name: move4;
+        }
+
+        .fairy:nth-child(4)::before {
+            animation-duration: 12s;
+        }
+
+        .fairy:nth-child(4)::after {
+            animation-duration: 12s, 8034ms;
+            animation-delay: 0ms, 3665ms;
+        }
+
+        @keyframes move4 {
+            0% {
+                transform: translateX(-37vw) translateY(4vh) scale(0.5);
+            }
+
+            100% {
+                transform: translateX(20vw) translateY(-33vh) scale(0.78);
+            }
+        }
+
+        .fairy:nth-child(5) {
+            animation-name: move5;
+        }
+
+        .fairy:nth-child(5)::before {
+            animation-duration: 18s;
+        }
+
+        .fairy:nth-child(5)::after {
+            animation-duration: 18s, 9982ms;
+            animation-delay: 0ms, 2030ms;
+        }
+
+        @keyframes move5 {
+            0% {
+                transform: translateX(0vw) translateY(33vh) scale(0.96);
+            }
+
+            100% {
+                transform: translateX(7vw) translateY(-26vh) scale(0.94);
+            }
+        }
+
+        .fairy:nth-child(6) {
+            animation-name: move6;
+        }
+
+        .fairy:nth-child(6)::before {
+            animation-duration: 17s;
+        }
+
+        .fairy:nth-child(6)::after {
+            animation-duration: 17s, 10091ms;
+            animation-delay: 0ms, 5480ms;
+        }
+
+        @keyframes move6 {
+            0% {
+                transform: translateX(-39vw) translateY(25vh) scale(0.5);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(-13vh) scale(0.98);
+            }
+        }
+
+        .fairy:nth-child(7) {
+            animation-name: move7;
+        }
+
+        .fairy:nth-child(7)::before {
+            animation-duration: 9s;
+        }
+
+        .fairy:nth-child(7)::after {
+            animation-duration: 9s, 10580ms;
+            animation-delay: 0ms, 4415ms;
+        }
+
+        @keyframes move7 {
+            0% {
+                transform: translateX(4vw) translateY(7vh) scale(0.4);
+            }
+
+            100% {
+                transform: translateX(0vw) translateY(6vh) scale(0.63);
+            }
+        }
+
+        .fairy:nth-child(8) {
+            animation-name: move8;
+        }
+
+        .fairy:nth-child(8)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(8)::after {
+            animation-duration: 11s, 9302ms;
+            animation-delay: 0ms, 3642ms;
+        }
+
+        @keyframes move8 {
+            0% {
+                transform: translateX(5vw) translateY(-24vh) scale(0.72);
+            }
+
+            100% {
+                transform: translateX(-22vw) translateY(4vh) scale(0.27);
+            }
+        }
+
+        .fairy:nth-child(9) {
+            animation-name: move9;
+        }
+
+        .fairy:nth-child(9)::before {
+            animation-duration: 14s;
+        }
+
+        .fairy:nth-child(9)::after {
+            animation-duration: 14s, 5697ms;
+            animation-delay: 0ms, 4357ms;
+        }
+
+        @keyframes move9 {
+            0% {
+                transform: translateX(-7vw) translateY(50vh) scale(0.63);
+            }
+
+            100% {
+                transform: translateX(-23vw) translateY(-44vh) scale(0.42);
+            }
+        }
+
+        .fairy:nth-child(10) {
+            animation-name: move10;
+        }
+
+        .fairy:nth-child(10)::before {
+            animation-duration: 14s;
+        }
+
+        .fairy:nth-child(10)::after {
+            animation-duration: 14s, 6034ms;
+            animation-delay: 0ms, 7729ms;
+        }
+
+        @keyframes move10 {
+            0% {
+                transform: translateX(39vw) translateY(-12vh) scale(0.91);
+            }
+
+            100% {
+                transform: translateX(-47vw) translateY(40vh) scale(0.36);
+            }
+        }
+
+        .fairy:nth-child(11) {
+            animation-name: move11;
+        }
+
+        .fairy:nth-child(11)::before {
+            animation-duration: 9s;
+        }
+
+        .fairy:nth-child(11)::after {
+            animation-duration: 9s, 6968ms;
+            animation-delay: 0ms, 7365ms;
+        }
+
+        @keyframes move11 {
+            0% {
+                transform: translateX(-40vw) translateY(-3vh) scale(0.74);
+            }
+
+            100% {
+                transform: translateX(43vw) translateY(38vh) scale(0.72);
+            }
+        }
+
+        .fairy:nth-child(12) {
+            animation-name: move12;
+        }
+
+        .fairy:nth-child(12)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(12)::after {
+            animation-duration: 16s, 9077ms;
+            animation-delay: 0ms, 2115ms;
+        }
+
+        @keyframes move12 {
+            0% {
+                transform: translateX(-39vw) translateY(24vh) scale(0.83);
+            }
+
+            100% {
+                transform: translateX(38vw) translateY(-31vh) scale(0.72);
+            }
+        }
+
+        .fairy:nth-child(13) {
+            animation-name: move13;
+        }
+
+        .fairy:nth-child(13)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(13)::after {
+            animation-duration: 13s, 10543ms;
+            animation-delay: 0ms, 7111ms;
+        }
+
+        @keyframes move13 {
+            0% {
+                transform: translateX(-22vw) translateY(25vh) scale(0.35);
+            }
+
+            100% {
+                transform: translateX(43vw) translateY(4vh) scale(0.93);
+            }
+        }
+
+        .fairy:nth-child(14) {
+            animation-name: move14;
+        }
+
+        .fairy:nth-child(14)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(14)::after {
+            animation-duration: 15s, 6930ms;
+            animation-delay: 0ms, 3394ms;
+        }
+
+        @keyframes move14 {
+            0% {
+                transform: translateX(17vw) translateY(15vh) scale(0.57);
+            }
+
+            100% {
+                transform: translateX(-25vw) translateY(7vh) scale(0.59);
+            }
+        }
+
+        .fairy:nth-child(15) {
+            animation-name: move15;
+        }
+
+        .fairy:nth-child(15)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(15)::after {
+            animation-duration: 15s, 7439ms;
+            animation-delay: 0ms, 5284ms;
+        }
+
+        @keyframes move15 {
+            0% {
+                transform: translateX(-19vw) translateY(-30vh) scale(0.47);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(40vh) scale(0.63);
+            }
+        }
+
+        .fairy:nth-child(16) {
+            animation-name: move16;
+        }
+
+        .fairy:nth-child(16)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(16)::after {
+            animation-duration: 13s, 6003ms;
+            animation-delay: 0ms, 6802ms;
+        }
+
+        @keyframes move16 {
+            0% {
+                transform: translateX(-43vw) translateY(-18vh) scale(0.59);
+            }
+
+            100% {
+                transform: translateX(48vw) translateY(25vh) scale(0.27);
+            }
+        }
+
+        .fairy:nth-child(17) {
+            animation-name: move17;
+        }
+
+        .fairy:nth-child(17)::before {
+            animation-duration: 11s;
+        }
+
+        .fairy:nth-child(17)::after {
+            animation-duration: 11s, 8119ms;
+            animation-delay: 0ms, 5761ms;
+        }
+
+        @keyframes move17 {
+            0% {
+                transform: translateX(6vw) translateY(-17vh) scale(0.46);
+            }
+
+            100% {
+                transform: translateX(-28vw) translateY(-47vh) scale(0.42);
+            }
+        }
+
+        .fairy:nth-child(18) {
+            animation-name: move18;
+        }
+
+        .fairy:nth-child(18)::before {
+            animation-duration: 15s;
+        }
+
+        .fairy:nth-child(18)::after {
+            animation-duration: 15s, 7715ms;
+            animation-delay: 0ms, 1324ms;
+        }
+
+        @keyframes move18 {
+            0% {
+                transform: translateX(-6vw) translateY(-4vh) scale(0.29);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(10vh) scale(0.73);
+            }
+        }
+
+        .fairy:nth-child(19) {
+            animation-name: move19;
+        }
+
+        .fairy:nth-child(19)::before {
+            animation-duration: 16s;
+        }
+
+        .fairy:nth-child(19)::after {
+            animation-duration: 16s, 5296ms;
+            animation-delay: 0ms, 3038ms;
+        }
+
+        @keyframes move19 {
+            0% {
+                transform: translateX(48vw) translateY(-41vh) scale(0.48);
+            }
+
+            100% {
+                transform: translateX(6vw) translateY(-14vh) scale(0.58);
+            }
+        }
+
+        .fairy:nth-child(20) {
+            animation-name: move20;
+        }
+
+        .fairy:nth-child(20)::before {
+            animation-duration: 13s;
+        }
+
+        .fairy:nth-child(20)::after {
+            animation-duration: 13s, 10475ms;
+            animation-delay: 0ms, 2154ms;
+        }
+
+        @keyframes move20 {
+            0% {
+                transform: translateX(-35vw) translateY(-23vh) scale(0.54);
+            }
+
+            100% {
+                transform: translateX(8vw) translateY(3vh) scale(0.73);
+            }
+        }
+
     </style>
 </head>
 
 <body>
+    <!-- Fairy particles -->
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+    <div class="fairy"></div>
+
 
     <!-- Barra superior -->
     <div class="bg-primary text-white text-center text-sm font-semibold py-2.5 px-4">
@@ -95,29 +654,26 @@
     <main>
 
     <!-- ═══════════ DOBRA 1: HERO ═══════════ -->
-    <section class="relative overflow-hidden bg-background-dark">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-            <!-- Texto -->
-            <div class="relative z-10">
-                <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-10 w-auto mb-8">
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-                    Geramos oportunidades reais de vendas <span class="text-blue">para aumentar o seu</span> faturamento.
-                </h1>
-                <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
-                    Somos uma assessoria de marketing digital de Minas Gerais, especializada em criar estratégias que colocam sua empresa na frente de quem está pronto para comprar, gerando mais contatos, mais propostas e mais fechamentos para o seu time comercial.
-                </p>
-                <a href="https://api.whatsapp.com/send/?phone=5534999049299&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank" class="cta-green">
-                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">chat</span>
-                    Quero um diagnóstico grátis
-                </a>
-                <div class="section-underline mx-0 mt-8"></div>
-            </div>
-            <!-- Imagem -->
-            <div class="relative">
-                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
-                    <img src="../assets/bg.jpg" alt="Equipe Insider Mídia em reunião" class="w-full h-full object-cover">
-                </div>
-            </div>
+    <section class="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <!-- Imagem de fundo com baixa opacidade -->
+        <img src="../assets/bg.jpg" alt="Background"
+            class="absolute inset-0 w-full h-full object-cover opacity-[0.15] z-0 pointer-events-none mix-blend-screen">
+        <!-- Glow radial central -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-11 w-auto mx-auto mb-10">
+            <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.15] mb-6">
+                Geramos oportunidades reais de vendas <span class="text-blue">para aumentar o seu</span> faturamento.
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                Somos uma assessoria de marketing digital de Minas Gerais, especializada em criar estratégias que colocam sua empresa na frente de quem está pronto para comprar, gerando mais contatos, mais propostas e mais fechamentos para o seu time comercial.
+            </p>
+            <a href="https://api.whatsapp.com/send/?phone=5534999049299&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank" class="cta-green">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">chat</span>
+                Quero um diagnóstico grátis
+            </a>
+            <div class="section-underline mt-10"></div>
         </div>
     </section>
 
@@ -271,29 +827,88 @@
             <p class="text-slate-400 mb-12">É simples e rápido. Veja o que acontece depois que você entrar em contato:</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <!-- 01 -->
+                <!-- 01 Diagnóstico -->
                 <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-5">01</div>
-                    <div class="rounded-lg overflow-hidden mb-5 bg-white/5 border border-white/10 p-4 h-40 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary-light" style="font-size:64px;">pie_chart</span>
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">01</div>
+                    <!-- Ilustração animada: dashboard de diagnóstico -->
+                    <div class="relative h-44 mb-6" aria-hidden="true">
+                        <!-- Badge flutuante -->
+                        <div class="absolute -top-2 -right-1 z-30 bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4s ease-in-out infinite;">
+                            <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">check_circle</span> +247%
+                        </div>
+                        <div class="w-full h-full bg-[#0F172A] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-primary" style="animation: pulsePillBlue 2.5s infinite;"></div>
+                                <div class="w-20 h-1.5 bg-white/20 rounded-full"></div>
+                            </div>
+                            <div class="flex gap-2 flex-1">
+                                <!-- Donut -->
+                                <div class="flex items-center justify-center w-16">
+                                    <div class="w-12 h-12 rounded-full" style="background: conic-gradient(#3B82F6 0% 55%, #22C55E 55% 80%, #1F2937 80% 100%);">
+                                        <div class="w-full h-full flex items-center justify-center">
+                                            <div class="w-6 h-6 rounded-full bg-[#0F172A]"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Barras -->
+                                <div class="flex-1 flex flex-col justify-center gap-1.5">
+                                    <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-primary rounded-full" style="width:80%"></div></div></div>
+                                    <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-green-400 rounded-full" style="width:55%"></div></div></div>
+                                    <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-yellow-400 rounded-full" style="width:35%"></div></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Diagnóstico</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Geramos oportunidades reais de vendas para ajudar no crescimento da sua empresa.</p>
                 </div>
-                <!-- 02 -->
+                <!-- 02 Plano de Ação -->
                 <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-5">02</div>
-                    <div class="rounded-lg overflow-hidden mb-5 bg-white/5 border border-white/10 p-4 h-40 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary-light" style="font-size:64px;">view_timeline</span>
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">02</div>
+                    <!-- Ilustração animada: cronograma/gantt -->
+                    <div class="relative h-44 mb-6" aria-hidden="true">
+                        <div class="absolute -top-2 -left-1 z-30 bg-blue-500/20 backdrop-blur-md border border-blue-500/30 text-blue-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDownDelayed 5s ease-in-out infinite;">
+                            <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">flag</span> Metas Definidas
+                        </div>
+                        <div class="w-full h-full bg-[#0F172A] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col justify-center gap-2.5">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-3.5 h-3.5 rounded-full bg-primary border-2 border-primary-light"></div>
+                                <div class="flex-1 h-0.5 bg-primary/40 rounded-full"></div>
+                                <div class="w-3.5 h-3.5 rounded-full bg-primary border-2 border-primary-light"></div>
+                                <div class="flex-1 h-0.5 bg-primary/20 rounded-full"></div>
+                                <div class="w-3.5 h-3.5 rounded-full bg-white/10 border border-white/20"></div>
+                            </div>
+                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-primary rounded-full" style="width:88%; animation: pulsePillBlue 3s infinite;"></div></div></div>
+                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-green-400 rounded-full" style="width:62%"></div></div></div>
+                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-yellow-400 rounded-full" style="width:40%"></div></div></div>
+                        </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Plano de Ação</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Criamos uma estratégia personalizada para o seu negócio, com ações claras e focadas em gerar resultados reais.</p>
                 </div>
-                <!-- 03 -->
+                <!-- 03 Proposta Comercial -->
                 <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-5">03</div>
-                    <div class="rounded-lg overflow-hidden mb-5 bg-white/5 border border-white/10 p-4 h-40 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary-light" style="font-size:64px;">description</span>
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">03</div>
+                    <!-- Ilustração animada: proposta comercial -->
+                    <div class="relative h-44 mb-6" aria-hidden="true">
+                        <div class="absolute -bottom-2 -right-1 z-30 bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4.5s ease-in-out infinite;">
+                            <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">verified</span> Aprovada
+                        </div>
+                        <div class="w-full h-full bg-white rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col gap-2">
+                            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                                <div class="w-14 h-2 bg-primary/60 rounded"></div>
+                                <div class="w-6 h-6 rounded bg-primary/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[13px]">description</span></div>
+                            </div>
+                            <div class="flex flex-col gap-1.5 flex-1 pt-1">
+                                <div class="flex justify-between items-center"><div class="w-16 h-1.5 bg-slate-300 rounded"></div><div class="w-8 h-1.5 bg-slate-300 rounded"></div></div>
+                                <div class="flex justify-between items-center"><div class="w-20 h-1.5 bg-slate-200 rounded"></div><div class="w-8 h-1.5 bg-slate-200 rounded"></div></div>
+                                <div class="flex justify-between items-center"><div class="w-14 h-1.5 bg-slate-200 rounded"></div><div class="w-8 h-1.5 bg-slate-200 rounded"></div></div>
+                            </div>
+                            <div class="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-2 py-1.5" style="animation: pulsePillBlue 3s infinite;">
+                                <div class="w-10 h-1.5 bg-green-600/50 rounded"></div>
+                                <div class="w-12 h-2.5 bg-green-500 rounded"></div>
+                            </div>
+                        </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Proposta Comercial</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Você recebe uma proposta sob medida, com tudo que foi definido para o seu projeto e o investimento necessário para começar.</p>
