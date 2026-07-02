@@ -1194,24 +1194,17 @@
                                     // Coleta UTMs da URL
                                     var urlParams = new URLSearchParams(window.location.search);
 
-                                    // Envia para o Google Sheets via Apps Script
-                                    var formData = new URLSearchParams();
-                                    formData.append('Nome',         document.getElementById('inputNome').value.trim());
-                                    formData.append('Email',        document.getElementById('inputEmail').value.trim());
-                                    formData.append('WhatsApp',     document.getElementById('inputWhatsapp').value.trim());
-                                    formData.append('Empresa',      document.getElementById('inputEmpresa').value.trim());
-                                    formData.append('utm_source',   urlParams.get('utm_source')   || '');
-                                    formData.append('utm_medium',   urlParams.get('utm_medium')   || '');
-                                    formData.append('utm_campaign', urlParams.get('utm_campaign') || '');
-                                    formData.append('utm_content',  urlParams.get('utm_content')  || '');
-                                    formData.append('utm_term',     urlParams.get('utm_term')     || '');
-
-                                    fetch('https://script.google.com/macros/s/AKfycbzzBjsGiG4NTn57-AZ3EQ79fsJA2Z9WeXB8lyynQMfP1erYE4EvAm9nFgprDSr6U9o9/exec', {
-                                        method: 'POST',
-                                        mode: 'no-cors',
-                                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                                        body: formData.toString()
-                                    }).catch(function() {});
+                                    // Preenche o form oculto e submete no iframe (método confiável com Apps Script)
+                                    document.getElementById('gas_Nome').value         = document.getElementById('inputNome').value.trim();
+                                    document.getElementById('gas_Email').value        = document.getElementById('inputEmail').value.trim();
+                                    document.getElementById('gas_WhatsApp').value     = document.getElementById('inputWhatsapp').value.trim();
+                                    document.getElementById('gas_Empresa').value      = document.getElementById('inputEmpresa').value.trim();
+                                    document.getElementById('gas_utm_source').value   = urlParams.get('utm_source')   || '';
+                                    document.getElementById('gas_utm_medium').value   = urlParams.get('utm_medium')   || '';
+                                    document.getElementById('gas_utm_campaign').value = urlParams.get('utm_campaign') || '';
+                                    document.getElementById('gas_utm_content').value  = urlParams.get('utm_content')  || '';
+                                    document.getElementById('gas_utm_term').value     = urlParams.get('utm_term')     || '';
+                                    document.getElementById('gas_form').submit();
 
                                     setTimeout(function() {
                                         window.open('https://api.whatsapp.com/send/?phone=5534999049299&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+saber+mais.&type=phone_number&app_absent=0', '_blank');
@@ -1410,7 +1403,23 @@
             }
         });
     </script>
-    
+
+  <!-- Form oculto + iframe para envio ao Google Apps Script (sem bloqueio de CORS) -->
+  <iframe name="gas_iframe" style="display:none;" aria-hidden="true"></iframe>
+  <form id="gas_form" method="POST"
+        action="https://script.google.com/macros/s/AKfycbzzBjsGiG4NTn57-AZ3EQ79fsJA2Z9WeXB8lyynQMfP1erYE4EvAm9nFgprDSr6U9o9/exec"
+        target="gas_iframe" style="display:none;">
+    <input type="hidden" id="gas_Nome"         name="Nome">
+    <input type="hidden" id="gas_Email"        name="Email">
+    <input type="hidden" id="gas_WhatsApp"     name="WhatsApp">
+    <input type="hidden" id="gas_Empresa"      name="Empresa">
+    <input type="hidden" id="gas_utm_source"   name="utm_source">
+    <input type="hidden" id="gas_utm_medium"   name="utm_medium">
+    <input type="hidden" id="gas_utm_campaign" name="utm_campaign">
+    <input type="hidden" id="gas_utm_content"  name="utm_content">
+    <input type="hidden" id="gas_utm_term"     name="utm_term">
+  </form>
+
 </body>
 
 </html>
