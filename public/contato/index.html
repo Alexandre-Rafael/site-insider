@@ -1174,8 +1174,8 @@
                                 }
 
                                 function submitForm() {
-                                    let input = document.getElementById('inputEmail');
-                                    let error = document.getElementById('errorEmail');
+                                    var input = document.getElementById('inputEmail');
+                                    var error = document.getElementById('errorEmail');
 
                                     if (input && input.value.trim() === '') {
                                         input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
@@ -1190,6 +1190,28 @@
                                     document.getElementById('step4').classList.add('hidden');
                                     document.getElementById('step5').classList.remove('hidden');
                                     document.getElementById('formProgress').parentElement.classList.add('hidden');
+
+                                    // Coleta UTMs da URL
+                                    var urlParams = new URLSearchParams(window.location.search);
+
+                                    // Envia para o Google Sheets via Apps Script
+                                    var formData = new URLSearchParams();
+                                    formData.append('Nome',         document.getElementById('inputNome').value.trim());
+                                    formData.append('Email',        document.getElementById('inputEmail').value.trim());
+                                    formData.append('WhatsApp',     document.getElementById('inputWhatsapp').value.trim());
+                                    formData.append('Empresa',      document.getElementById('inputEmpresa').value.trim());
+                                    formData.append('utm_source',   urlParams.get('utm_source')   || '');
+                                    formData.append('utm_medium',   urlParams.get('utm_medium')   || '');
+                                    formData.append('utm_campaign', urlParams.get('utm_campaign') || '');
+                                    formData.append('utm_content',  urlParams.get('utm_content')  || '');
+                                    formData.append('utm_term',     urlParams.get('utm_term')     || '');
+
+                                    fetch('https://script.google.com/macros/s/AKfycbzzBjsGiG4NTn57-AZ3EQ79fsJA2Z9WeXB8lyynQMfP1erYE4EvAm9nFgprDSr6U9o9/exec', {
+                                        method: 'POST',
+                                        mode: 'no-cors',
+                                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                        body: formData.toString()
+                                    }).catch(function() {});
 
                                     setTimeout(function() {
                                         window.open('https://api.whatsapp.com/send/?phone=5534999049299&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+saber+mais.&type=phone_number&app_absent=0', '_blank');
