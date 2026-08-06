@@ -410,7 +410,7 @@
         }
 
         .animate-marquee-left {
-            animation: marquee-left 40s linear infinite;
+            animation: marquee-left 20s linear infinite;
             width: max-content;
         }
 
@@ -1087,11 +1087,23 @@
             <div class="absolute w-[110vw] flex overflow-hidden bg-gradient-to-r from-primary to-primary-dark text-white py-1.5 shadow-xl transform -rotate-[2deg] z-20 border-y border-white/20"
                 style="left: -5vw;">
                 <div class="flex items-center animate-marquee-left">
-                    <div class="flex items-center justify-around whitespace-nowrap">
-                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE
-                            CONVERTEM</span>
-                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA
-                            PRESENÇA</span>
+                    <!-- Grupo 1 -->
+                    <div class="flex items-center whitespace-nowrap shrink-0">
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
+                    </div>
+                    <!-- Grupo 2 (cópia idêntica para loop contínuo) -->
+                    <div class="flex items-center whitespace-nowrap shrink-0" aria-hidden="true">
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">RESULTADOS QUE CONVERTEM</span>
+                        <span class="mx-8 text-lg font-bold uppercase tracking-widest opacity-90">CRIAMOS A SUA PRESENÇA</span>
                     </div>
                 </div>
             </div>
