@@ -23,77 +23,107 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#3B82F6",
-                        "primary-dark": "#1D4ED8",
-                        "primary-light": "#60A5FA",
-                        "background-dark": "#0B0F19",
-                        "surface-dark": "#111827",
-                        "border-dark": "#1F2937",
+                        primary: "#A8E05C",
+                        "primary-dark": "#8FC93A",
+                        "primary-light": "#BEEE74",
+                        ink: "#14170F",
+                        "ink-soft": "#1B1F15",
+                        cream: "#EFEDE4",
                     },
                     fontFamily: {
-                        display: ["Inter", "sans-serif"],
-                        body: ["Inter", "sans-serif"],
+                        display: ["Manrope", "sans-serif"],
+                        body: ["Manrope", "sans-serif"],
                     },
                     borderRadius: { DEFAULT: "1rem", 'xl': "1.5rem", '2xl': "2rem" },
                 },
             },
         };
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <style>
         html, body { overflow-x: hidden; }
-        body { font-family: 'Inter', sans-serif; background: #0B0F19; color: #f1f5f9; }
+        body { font-family: 'Manrope', sans-serif; background: #14170F; color: #F2F3EC; -webkit-font-smoothing: antialiased; }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
+        /* ── Eyebrow (rótulo de seção) ── */
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase;
         }
+        .eyebrow .dot { width: 7px; height: 7px; border-radius: 9999px; background: #A8E05C; flex-shrink: 0; }
+        .eyebrow.on-dark { color: #A9BE8C; }
+        .eyebrow.on-cream { color: #6B7060; }
 
-        .text-blue { color: #3B82F6; }
+        .accent { color: #BEEE74; }
+        .accent-ink { color: #14170F; }
 
+        /* ── Botões ── */
         .cta-green {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-            background: #22C55E; color: #fff; font-weight: 700;
-            padding: 0.9rem 2rem; border-radius: 9999px;
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
-            transition: all 0.25s ease; text-transform: uppercase;
-            font-size: 0.82rem; letter-spacing: 0.03em;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+            background: #A8E05C; color: #14170F; font-weight: 700;
+            padding: 0.85rem 1.7rem; border-radius: 9999px;
+            box-shadow: 0 10px 30px rgba(168, 224, 92, 0.22);
+            transition: all 0.25s ease; font-size: 0.9rem; letter-spacing: 0.01em;
         }
-        .cta-green:hover { background: #16A34A; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(34, 197, 94, 0.4); }
+        .cta-green:hover { background: #BEEE74; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(168, 224, 92, 0.35); }
 
-        .section-underline {
-            width: 60px; height: 3px; background: #3B82F6;
-            border-radius: 9999px; margin: 1rem auto 0;
+        .btn-ghost {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            background: transparent; border: 1px solid rgba(255,255,255,0.18); color: #F2F3EC;
+            font-weight: 600; padding: 0.85rem 1.6rem; border-radius: 9999px;
+            transition: all 0.25s ease; font-size: 0.9rem;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.32); }
+
+        /* ── Cards ── */
+        .card-dark {
+            background: #1B1F15; border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px; transition: border-color 0.3s, transform 0.3s;
+        }
+        .card-dark:hover { border-color: rgba(168,224,92,0.4); }
+
+        .card-cream {
+            background: #FFFFFF; border: 1px solid rgba(20,23,15,0.08);
+            border-radius: 20px; transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .card-cream:hover { border-color: rgba(168,224,92,0.6); box-shadow: 0 12px 30px rgba(20,23,15,0.06); }
+
+        /* ── Chip de ícone ── */
+        .icon-chip {
+            width: 3rem; height: 3rem; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(168,224,92,0.12); border: 1px solid rgba(168,224,92,0.28);
+            color: #6FA82A;
         }
 
-        .bg-grid {
-            background-image:
-                linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
+        /* ── Pílula flutuante do hero ── */
+        .float-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(27,31,21,0.85); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1); color: #EDEFE6;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
+            padding: 0.5rem 0.9rem; border-radius: 9999px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
         }
+        .float-pill .fdot { width: 8px; height: 8px; border-radius: 9999px; flex-shrink: 0; }
+
+        .play-btn {
+            width: 56px; height: 56px; border-radius: 9999px;
+            background: #A8E05C; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.4); transition: transform 0.3s ease;
+        }
+        .video-card:hover .play-btn { transform: scale(1.1); }
 
         @keyframes pulsePill {
             0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
             50% { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
         }
-
-        .play-btn {
-            width: 56px; height: 56px; border-radius: 9999px;
-            background: rgba(239, 68, 68, 0.95);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
-        }
-        .video-card:hover .play-btn { transform: scale(1.1); }
-
-        @keyframes pulsePillBlue {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(59, 130, 246, 0.7); }
+        @keyframes pulseLime {
+            0%, 100% { box-shadow: 0 0 8px rgba(168,224,92,0.35); }
+            50% { box-shadow: 0 0 18px rgba(168,224,92,0.8); }
         }
         @keyframes floatUpDown {
             0%, 100% { transform: translateY(0); }
@@ -103,529 +133,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
-
-        /* Fairy particles CSS */
-        .fairy {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            width: 0.4vw;
-            height: 0.4vw;
-            margin: -0.2vw 0 0 9.8vw;
-            animation: ease 200s alternate infinite;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .fairy::before,
-        .fairy::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            transform-origin: -10vw;
-            filter: blur(2px);
-        }
-
-        .fairy::before {
-            background: transparent;
-            opacity: 0.4;
-            animation: drift ease alternate infinite;
-        }
-
-        .fairy::after {
-            background: #BCCFFF;
-            opacity: 0;
-            box-shadow: 0 0 0vw 0vw #BCCFFF;
-            animation: drift ease alternate infinite, flash ease infinite;
-        }
-
-        @keyframes drift {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes flash {
-
-            0%,
-            30%,
-            100% {
-                opacity: 0;
-                box-shadow: 0 0 0vw 0vw #BCCFFF;
-            }
-
-            5% {
-                opacity: 1;
-                box-shadow: 0 0 2vw 0.4vw #BCCFFF;
-            }
-        }
-
-        .fairy:nth-child(1) {
-            animation-name: move1;
-        }
-
-        .fairy:nth-child(1)::before {
-            animation-duration: 11s;
-        }
-
-        .fairy:nth-child(1)::after {
-            animation-duration: 11s, 10758ms;
-            animation-delay: 0ms, 7588ms;
-        }
-
-        @keyframes move1 {
-            0% {
-                transform: translateX(-4vw) translateY(-9vh) scale(0.45);
-            }
-
-            100% {
-                transform: translateX(-48vw) translateY(28vh) scale(0.79);
-            }
-        }
-
-        .fairy:nth-child(2) {
-            animation-name: move2;
-        }
-
-        .fairy:nth-child(2)::before {
-            animation-duration: 16s;
-        }
-
-        .fairy:nth-child(2)::after {
-            animation-duration: 16s, 10258ms;
-            animation-delay: 0ms, 3012ms;
-        }
-
-        @keyframes move2 {
-            0% {
-                transform: translateX(6vw) translateY(5vh) scale(0.37);
-            }
-
-            100% {
-                transform: translateX(42vw) translateY(28vh) scale(0.41);
-            }
-        }
-
-        .fairy:nth-child(3) {
-            animation-name: move3;
-        }
-
-        .fairy:nth-child(3)::before {
-            animation-duration: 18s;
-        }
-
-        .fairy:nth-child(3)::after {
-            animation-duration: 18s, 9791ms;
-            animation-delay: 0ms, 4740ms;
-        }
-
-        @keyframes move3 {
-            0% {
-                transform: translateX(-21vw) translateY(33vh) scale(0.47);
-            }
-
-            100% {
-                transform: translateX(10vw) translateY(-8vh) scale(0.92);
-            }
-        }
-
-        .fairy:nth-child(4) {
-            animation-name: move4;
-        }
-
-        .fairy:nth-child(4)::before {
-            animation-duration: 12s;
-        }
-
-        .fairy:nth-child(4)::after {
-            animation-duration: 12s, 8034ms;
-            animation-delay: 0ms, 3665ms;
-        }
-
-        @keyframes move4 {
-            0% {
-                transform: translateX(-37vw) translateY(4vh) scale(0.5);
-            }
-
-            100% {
-                transform: translateX(20vw) translateY(-33vh) scale(0.78);
-            }
-        }
-
-        .fairy:nth-child(5) {
-            animation-name: move5;
-        }
-
-        .fairy:nth-child(5)::before {
-            animation-duration: 18s;
-        }
-
-        .fairy:nth-child(5)::after {
-            animation-duration: 18s, 9982ms;
-            animation-delay: 0ms, 2030ms;
-        }
-
-        @keyframes move5 {
-            0% {
-                transform: translateX(0vw) translateY(33vh) scale(0.96);
-            }
-
-            100% {
-                transform: translateX(7vw) translateY(-26vh) scale(0.94);
-            }
-        }
-
-        .fairy:nth-child(6) {
-            animation-name: move6;
-        }
-
-        .fairy:nth-child(6)::before {
-            animation-duration: 17s;
-        }
-
-        .fairy:nth-child(6)::after {
-            animation-duration: 17s, 10091ms;
-            animation-delay: 0ms, 5480ms;
-        }
-
-        @keyframes move6 {
-            0% {
-                transform: translateX(-39vw) translateY(25vh) scale(0.5);
-            }
-
-            100% {
-                transform: translateX(8vw) translateY(-13vh) scale(0.98);
-            }
-        }
-
-        .fairy:nth-child(7) {
-            animation-name: move7;
-        }
-
-        .fairy:nth-child(7)::before {
-            animation-duration: 9s;
-        }
-
-        .fairy:nth-child(7)::after {
-            animation-duration: 9s, 10580ms;
-            animation-delay: 0ms, 4415ms;
-        }
-
-        @keyframes move7 {
-            0% {
-                transform: translateX(4vw) translateY(7vh) scale(0.4);
-            }
-
-            100% {
-                transform: translateX(0vw) translateY(6vh) scale(0.63);
-            }
-        }
-
-        .fairy:nth-child(8) {
-            animation-name: move8;
-        }
-
-        .fairy:nth-child(8)::before {
-            animation-duration: 11s;
-        }
-
-        .fairy:nth-child(8)::after {
-            animation-duration: 11s, 9302ms;
-            animation-delay: 0ms, 3642ms;
-        }
-
-        @keyframes move8 {
-            0% {
-                transform: translateX(5vw) translateY(-24vh) scale(0.72);
-            }
-
-            100% {
-                transform: translateX(-22vw) translateY(4vh) scale(0.27);
-            }
-        }
-
-        .fairy:nth-child(9) {
-            animation-name: move9;
-        }
-
-        .fairy:nth-child(9)::before {
-            animation-duration: 14s;
-        }
-
-        .fairy:nth-child(9)::after {
-            animation-duration: 14s, 5697ms;
-            animation-delay: 0ms, 4357ms;
-        }
-
-        @keyframes move9 {
-            0% {
-                transform: translateX(-7vw) translateY(50vh) scale(0.63);
-            }
-
-            100% {
-                transform: translateX(-23vw) translateY(-44vh) scale(0.42);
-            }
-        }
-
-        .fairy:nth-child(10) {
-            animation-name: move10;
-        }
-
-        .fairy:nth-child(10)::before {
-            animation-duration: 14s;
-        }
-
-        .fairy:nth-child(10)::after {
-            animation-duration: 14s, 6034ms;
-            animation-delay: 0ms, 7729ms;
-        }
-
-        @keyframes move10 {
-            0% {
-                transform: translateX(39vw) translateY(-12vh) scale(0.91);
-            }
-
-            100% {
-                transform: translateX(-47vw) translateY(40vh) scale(0.36);
-            }
-        }
-
-        .fairy:nth-child(11) {
-            animation-name: move11;
-        }
-
-        .fairy:nth-child(11)::before {
-            animation-duration: 9s;
-        }
-
-        .fairy:nth-child(11)::after {
-            animation-duration: 9s, 6968ms;
-            animation-delay: 0ms, 7365ms;
-        }
-
-        @keyframes move11 {
-            0% {
-                transform: translateX(-40vw) translateY(-3vh) scale(0.74);
-            }
-
-            100% {
-                transform: translateX(43vw) translateY(38vh) scale(0.72);
-            }
-        }
-
-        .fairy:nth-child(12) {
-            animation-name: move12;
-        }
-
-        .fairy:nth-child(12)::before {
-            animation-duration: 16s;
-        }
-
-        .fairy:nth-child(12)::after {
-            animation-duration: 16s, 9077ms;
-            animation-delay: 0ms, 2115ms;
-        }
-
-        @keyframes move12 {
-            0% {
-                transform: translateX(-39vw) translateY(24vh) scale(0.83);
-            }
-
-            100% {
-                transform: translateX(38vw) translateY(-31vh) scale(0.72);
-            }
-        }
-
-        .fairy:nth-child(13) {
-            animation-name: move13;
-        }
-
-        .fairy:nth-child(13)::before {
-            animation-duration: 13s;
-        }
-
-        .fairy:nth-child(13)::after {
-            animation-duration: 13s, 10543ms;
-            animation-delay: 0ms, 7111ms;
-        }
-
-        @keyframes move13 {
-            0% {
-                transform: translateX(-22vw) translateY(25vh) scale(0.35);
-            }
-
-            100% {
-                transform: translateX(43vw) translateY(4vh) scale(0.93);
-            }
-        }
-
-        .fairy:nth-child(14) {
-            animation-name: move14;
-        }
-
-        .fairy:nth-child(14)::before {
-            animation-duration: 15s;
-        }
-
-        .fairy:nth-child(14)::after {
-            animation-duration: 15s, 6930ms;
-            animation-delay: 0ms, 3394ms;
-        }
-
-        @keyframes move14 {
-            0% {
-                transform: translateX(17vw) translateY(15vh) scale(0.57);
-            }
-
-            100% {
-                transform: translateX(-25vw) translateY(7vh) scale(0.59);
-            }
-        }
-
-        .fairy:nth-child(15) {
-            animation-name: move15;
-        }
-
-        .fairy:nth-child(15)::before {
-            animation-duration: 15s;
-        }
-
-        .fairy:nth-child(15)::after {
-            animation-duration: 15s, 7439ms;
-            animation-delay: 0ms, 5284ms;
-        }
-
-        @keyframes move15 {
-            0% {
-                transform: translateX(-19vw) translateY(-30vh) scale(0.47);
-            }
-
-            100% {
-                transform: translateX(8vw) translateY(40vh) scale(0.63);
-            }
-        }
-
-        .fairy:nth-child(16) {
-            animation-name: move16;
-        }
-
-        .fairy:nth-child(16)::before {
-            animation-duration: 13s;
-        }
-
-        .fairy:nth-child(16)::after {
-            animation-duration: 13s, 6003ms;
-            animation-delay: 0ms, 6802ms;
-        }
-
-        @keyframes move16 {
-            0% {
-                transform: translateX(-43vw) translateY(-18vh) scale(0.59);
-            }
-
-            100% {
-                transform: translateX(48vw) translateY(25vh) scale(0.27);
-            }
-        }
-
-        .fairy:nth-child(17) {
-            animation-name: move17;
-        }
-
-        .fairy:nth-child(17)::before {
-            animation-duration: 11s;
-        }
-
-        .fairy:nth-child(17)::after {
-            animation-duration: 11s, 8119ms;
-            animation-delay: 0ms, 5761ms;
-        }
-
-        @keyframes move17 {
-            0% {
-                transform: translateX(6vw) translateY(-17vh) scale(0.46);
-            }
-
-            100% {
-                transform: translateX(-28vw) translateY(-47vh) scale(0.42);
-            }
-        }
-
-        .fairy:nth-child(18) {
-            animation-name: move18;
-        }
-
-        .fairy:nth-child(18)::before {
-            animation-duration: 15s;
-        }
-
-        .fairy:nth-child(18)::after {
-            animation-duration: 15s, 7715ms;
-            animation-delay: 0ms, 1324ms;
-        }
-
-        @keyframes move18 {
-            0% {
-                transform: translateX(-6vw) translateY(-4vh) scale(0.29);
-            }
-
-            100% {
-                transform: translateX(8vw) translateY(10vh) scale(0.73);
-            }
-        }
-
-        .fairy:nth-child(19) {
-            animation-name: move19;
-        }
-
-        .fairy:nth-child(19)::before {
-            animation-duration: 16s;
-        }
-
-        .fairy:nth-child(19)::after {
-            animation-duration: 16s, 5296ms;
-            animation-delay: 0ms, 3038ms;
-        }
-
-        @keyframes move19 {
-            0% {
-                transform: translateX(48vw) translateY(-41vh) scale(0.48);
-            }
-
-            100% {
-                transform: translateX(6vw) translateY(-14vh) scale(0.58);
-            }
-        }
-
-        .fairy:nth-child(20) {
-            animation-name: move20;
-        }
-
-        .fairy:nth-child(20)::before {
-            animation-duration: 13s;
-        }
-
-        .fairy:nth-child(20)::after {
-            animation-duration: 13s, 10475ms;
-            animation-delay: 0ms, 2154ms;
-        }
-
-        @keyframes move20 {
-            0% {
-                transform: translateX(-35vw) translateY(-23vh) scale(0.54);
-            }
-
-            100% {
-                transform: translateX(8vw) translateY(3vh) scale(0.73);
-            }
-        }
-
     </style>
 </head>
 
@@ -634,102 +141,139 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDR9C2T"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Fairy particles -->
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-    <div class="fairy"></div>
-
 
     <!-- Barra superior -->
-    <div class="bg-primary text-white text-center text-sm font-semibold py-2.5 px-4">
+    <div class="bg-primary text-ink text-center text-sm font-bold py-2.5 px-4">
         Sua empresa vendendo mais. Todo mês.
     </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 border-b border-white/5" style="background: rgba(20,23,15,0.85); backdrop-filter: blur(12px);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-7 w-auto">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#C7CBBC]">
+                <a href="#resultados" class="hover:text-white transition-colors">Cases</a>
+                <a href="#ideal" class="hover:text-white transition-colors">Serviços</a>
+                <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+            </nav>
+            <a href="https://api.whatsapp.com/send/?phone=5534999111430&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank"
+               class="hidden sm:inline-flex items-center gap-2 bg-primary text-ink font-bold text-sm px-5 py-2 rounded-full hover:bg-primary-light transition-colors">
+                Falar com especialista
+            </a>
+        </div>
+    </header>
 
     <main>
 
     <!-- ═══════════ DOBRA 1: HERO ═══════════ -->
-    <section class="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
-        <!-- Imagem de fundo com baixa opacidade -->
-        <img src="../assets/bg.jpg" alt="Background"
-            class="absolute inset-0 w-full h-full object-cover opacity-[0.15] z-0 pointer-events-none mix-blend-screen">
-        <!-- Glow radial central -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <section class="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
+        <!-- Glows de fundo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full pointer-events-none"
+             style="background: radial-gradient(ellipse, rgba(168,224,92,0.14) 0%, transparent 70%);"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-11 w-auto mx-auto mb-10">
-            <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.15] mb-6">
-                Geramos oportunidades reais de vendas <span class="text-blue">para aumentar o seu</span> faturamento.
+            <div class="eyebrow on-dark justify-center mb-6"><span class="dot"></span> Assessoria de Marketing Digital</div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold leading-[1.1] tracking-tight mb-6">
+                Geramos oportunidades reais de vendas <span class="accent">para aumentar o seu faturamento.</span>
             </h1>
-            <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p class="text-[#B7BCAC] text-base md:text-lg leading-relaxed mb-9 max-w-2xl mx-auto">
                 Somos uma assessoria de marketing digital de Minas Gerais, especializada em criar estratégias que colocam sua empresa na frente de quem está pronto para comprar, gerando mais contatos, mais propostas e mais fechamentos para o seu time comercial.
             </p>
-            <a href="https://api.whatsapp.com/send/?phone=5534999111430&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank" class="cta-green">
-                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">chat</span>
-                Quero um diagnóstico grátis
-            </a>
-            <div class="section-underline mt-10"></div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#resultados" class="btn-ghost">Ver cases</a>
+                <a href="https://api.whatsapp.com/send/?phone=5534999111430&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank" class="cta-green">
+                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">chat</span>
+                    Quero um diagnóstico grátis
+                </a>
+            </div>
+        </div>
+
+        <!-- Banner com a foto + pílulas flutuantes -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-14">
+            <div class="relative">
+                <!-- Glow atrás da foto -->
+                <div class="absolute -inset-4 rounded-[2rem] pointer-events-none"
+                     style="background: radial-gradient(ellipse at center, rgba(168,224,92,0.18) 0%, transparent 65%); filter: blur(30px);"></div>
+
+                <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 shadow-2xl">
+                    <img src="Foto%20hero.jpg" alt="Equipe Insider Mídia analisando dados" class="w-full h-auto object-cover">
+                    <!-- leve vinheta para integrar ao tema -->
+                    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(20,23,15,0.15) 0%, transparent 30%, rgba(20,23,15,0.35) 100%);"></div>
+                </div>
+
+                <!-- Pílulas flutuantes -->
+                <div class="hidden md:flex float-pill absolute -top-4 left-6 z-20" style="animation: floatUpDown 4.5s ease-in-out infinite;">
+                    <span class="fdot" style="background:#60A5FA;"></span> Estratégia
+                </div>
+                <div class="hidden md:flex float-pill absolute top-10 -right-3 z-20" style="animation: floatUpDownDelayed 5.5s ease-in-out infinite;">
+                    <span class="fdot" style="background:#F4C542;"></span> Baseado em dados
+                </div>
+                <div class="hidden md:flex float-pill absolute -bottom-4 left-10 z-20" style="animation: floatUpDown 5s ease-in-out infinite;">
+                    <span class="fdot" style="background:#A8E05C;"></span> Resultados reais
+                </div>
+
+                <!-- Card flutuante de performance -->
+                <div class="hidden lg:block absolute -bottom-6 -right-4 z-20 card-dark p-4 w-52 shadow-2xl" style="animation: floatUpDownDelayed 6s ease-in-out infinite;">
+                    <p class="text-[10px] uppercase tracking-widest text-[#9AA08C] font-bold mb-1">Performance</p>
+                    <div class="flex items-end gap-2">
+                        <p class="text-3xl font-extrabold text-primary leading-none">+190M</p>
+                        <span class="text-[10px] font-bold text-ink bg-primary px-1.5 py-0.5 rounded mb-1">em vendas</span>
+                    </div>
+                    <div class="flex items-end gap-1 h-8 mt-3">
+                        <div class="flex-1 bg-primary/25 rounded-sm" style="height:40%"></div>
+                        <div class="flex-1 bg-primary/40 rounded-sm" style="height:65%"></div>
+                        <div class="flex-1 bg-primary/60 rounded-sm" style="height:50%"></div>
+                        <div class="flex-1 bg-primary/80 rounded-sm" style="height:85%"></div>
+                        <div class="flex-1 bg-primary rounded-sm" style="height:100%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ═══════════ DOBRA 2: RESULTADOS ═══════════ -->
-    <section class="py-20 bg-background-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
-                Já geramos mais <span class="text-blue">de 190M em vendas</span> para nossos clientes
+    <section id="resultados" class="py-20 bg-ink">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="eyebrow on-dark justify-center mb-4"><span class="dot"></span> Cases reais</div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                Já geramos mais <span class="accent">de 190M em vendas</span> para nossos clientes
             </h2>
-            <div class="section-underline mb-6"></div>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-12">
+            <p class="text-[#9AA08C] max-w-2xl mx-auto mb-12">
                 Empresários de Minas Gerais que apostaram na estratégia certa e hoje têm resultados que falam por si:
             </p>
 
             <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
                 <!-- Diferpam -->
-                <div role="button" tabindex="0" data-yt="7NVBokH6lho" class="video-card glass-card p-5 rounded-2xl hover:border-primary/30 transition-colors text-left cursor-pointer">
+                <div role="button" tabindex="0" data-yt="7NVBokH6lho" class="video-card card-dark p-5 text-left cursor-pointer">
                     <h3 class="text-lg font-bold text-white">Diferpam</h3>
                     <div class="w-10 h-1 bg-primary rounded-full mt-2 mb-4"></div>
-                    <div class="relative aspect-video rounded-lg overflow-hidden">
+                    <div class="relative aspect-video rounded-xl overflow-hidden">
                         <img src="../assets/Diferpam-desktop.png" alt="Case Diferpam" class="w-full h-full object-cover">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-                            <div class="play-btn"><span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></div>
+                            <div class="play-btn"><span class="material-symbols-outlined text-[28px]" style="color:#14170F;font-variation-settings:'FILL' 1;">play_arrow</span></div>
                         </div>
                     </div>
                 </div>
                 <!-- Camarim -->
-                <div role="button" tabindex="0" data-yt="DYjwzwa7bbY" class="video-card glass-card p-5 rounded-2xl hover:border-primary/30 transition-colors text-left cursor-pointer">
+                <div role="button" tabindex="0" data-yt="DYjwzwa7bbY" class="video-card card-dark p-5 text-left cursor-pointer">
                     <h3 class="text-lg font-bold text-white">Camarim</h3>
                     <div class="w-10 h-1 bg-primary rounded-full mt-2 mb-4"></div>
-                    <div class="relative aspect-video rounded-lg overflow-hidden">
+                    <div class="relative aspect-video rounded-xl overflow-hidden">
                         <img src="../assets/Camarim-dektop.png" alt="Case Camarim" class="w-full h-full object-cover">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-                            <div class="play-btn"><span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></div>
+                            <div class="play-btn"><span class="material-symbols-outlined text-[28px]" style="color:#14170F;font-variation-settings:'FILL' 1;">play_arrow</span></div>
                         </div>
                     </div>
                 </div>
                 <!-- Design&Formatto -->
-                <div role="button" tabindex="0" data-yt="OMF8WPWw4F8" class="video-card glass-card p-5 rounded-2xl hover:border-primary/30 transition-colors text-left cursor-pointer">
+                <div role="button" tabindex="0" data-yt="OMF8WPWw4F8" class="video-card card-dark p-5 text-left cursor-pointer">
                     <h3 class="text-lg font-bold text-white">Design&Formatto</h3>
                     <div class="w-10 h-1 bg-primary rounded-full mt-2 mb-4"></div>
-                    <div class="relative aspect-video rounded-lg overflow-hidden">
+                    <div class="relative aspect-video rounded-xl overflow-hidden">
                         <img src="../assets/DesignFormato%20desktop.png" alt="Case Design e Formatto" class="w-full h-full object-cover">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-                            <div class="play-btn"><span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></div>
+                            <div class="play-btn"><span class="material-symbols-outlined text-[28px]" style="color:#14170F;font-variation-settings:'FILL' 1;">play_arrow</span></div>
                         </div>
                     </div>
                 </div>
@@ -742,49 +286,35 @@
         </div>
     </section>
 
-    <!-- ═══════════ DOBRA 3: IDEAL PARA ═══════════ -->
-    <section class="py-20 bg-background-dark">
+    <!-- ═══════════ DOBRA 3: IDEAL PARA (creme) ═══════════ -->
+    <section id="ideal" class="py-20 bg-cream text-ink">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-2">
-                Nosso serviço <span class="text-blue">é ideal para:</span>
-            </h2>
-            <div class="section-underline mb-12"></div>
+            <div class="eyebrow on-cream justify-center mb-4"><span class="dot"></span> Para quem é</div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-12">Nosso serviço é ideal para:</h2>
 
-            <!-- Primeira fileira: 3 cards -->
             <div class="grid md:grid-cols-3 gap-6 mb-6">
-                <div class="glass-card p-7 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                        <span class="material-symbols-outlined text-primary-light text-[24px]">monitoring</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">Empresas que faturam acima de R$ 60 mil por mês e querem transformar marketing em vendas previsíveis</p>
+                <div class="card-cream p-7 text-left">
+                    <div class="icon-chip mb-5"><span class="material-symbols-outlined text-[24px]">monitoring</span></div>
+                    <p class="text-[#3A3F30] text-sm leading-relaxed">Empresas que faturam acima de R$ 60 mil por mês e querem transformar marketing em vendas previsíveis</p>
                 </div>
-                <div class="glass-card p-7 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                        <span class="material-symbols-outlined text-primary-light text-[24px]">storefront</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">Empresários de Minas Gerais que querem ser encontrados pelos clientes certos na hora certa</p>
+                <div class="card-cream p-7 text-left">
+                    <div class="icon-chip mb-5"><span class="material-symbols-outlined text-[24px]">storefront</span></div>
+                    <p class="text-[#3A3F30] text-sm leading-relaxed">Empresários de Minas Gerais que querem ser encontrados pelos clientes certos na hora certa</p>
                 </div>
-                <div class="glass-card p-7 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                        <span class="material-symbols-outlined text-primary-light text-[24px]">ads_click</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">Empresas que investem em anúncios mas ainda não estão tendo o retorno que merecem</p>
+                <div class="card-cream p-7 text-left">
+                    <div class="icon-chip mb-5"><span class="material-symbols-outlined text-[24px]">ads_click</span></div>
+                    <p class="text-[#3A3F30] text-sm leading-relaxed">Empresas que investem em anúncios mas ainda não estão tendo o retorno que merecem</p>
                 </div>
             </div>
 
-            <!-- Segunda fileira: 2 cards centralizados -->
             <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
-                <div class="glass-card p-7 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                        <span class="material-symbols-outlined text-primary-light text-[24px]">trending_up</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">Negócios que querem crescer além da própria cidade e conquistar novos mercados</p>
+                <div class="card-cream p-7 text-left">
+                    <div class="icon-chip mb-5"><span class="material-symbols-outlined text-[24px]">trending_up</span></div>
+                    <p class="text-[#3A3F30] text-sm leading-relaxed">Negócios que querem crescer além da própria cidade e conquistar novos mercados</p>
                 </div>
-                <div class="glass-card p-7 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                        <span class="material-symbols-outlined text-primary-light text-[24px]">campaign</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">Empresas que precisam de um processo comercial mais forte, com mais leads e mais fechamentos</p>
+                <div class="card-cream p-7 text-left">
+                    <div class="icon-chip mb-5"><span class="material-symbols-outlined text-[24px]">campaign</span></div>
+                    <p class="text-[#3A3F30] text-sm leading-relaxed">Empresas que precisam de um processo comercial mais forte, com mais leads e mais fechamentos</p>
                 </div>
             </div>
 
@@ -796,27 +326,28 @@
     </section>
 
     <!-- ═══════════ DOBRA 4: QUEM ESTÁ POR TRÁS ═══════════ -->
-    <section class="py-20 bg-background-dark">
+    <section id="sobre" class="py-20 bg-ink">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8">
             <div>
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
-                    Quem está por trás <span class="text-blue">dos seus resultados</span>
+                <div class="eyebrow on-dark mb-4"><span class="dot"></span> Sobre nós</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Quem está por trás <span class="accent">dos seus resultados</span>
                 </h2>
-                <p class="text-slate-400 leading-relaxed mb-8 max-w-lg">
+                <p class="text-[#9AA08C] leading-relaxed mb-8 max-w-lg">
                     Somos uma assessoria de marketing digital de Minas Gerais, especializada em criar estratégias que colocam sua empresa na frente de quem está pronto para comprar, gerando mais contatos, mais propostas e mais fechamentos para o seu time comercial.
                 </p>
                 <div class="grid grid-cols-3 gap-4 mb-8 max-w-md">
-                    <div class="glass-card rounded-xl py-4 px-2 text-center">
-                        <p class="text-2xl font-extrabold text-white">190M</p>
-                        <p class="text-xs text-slate-500 mt-1">em vendas</p>
+                    <div class="card-dark py-4 px-2 text-center">
+                        <p class="text-2xl font-extrabold text-primary">190M</p>
+                        <p class="text-xs text-[#8A9078] mt-1">em vendas</p>
                     </div>
-                    <div class="glass-card rounded-xl py-4 px-2 text-center">
-                        <p class="text-2xl font-extrabold text-white">200+</p>
-                        <p class="text-xs text-slate-500 mt-1">clientes atendidos</p>
+                    <div class="card-dark py-4 px-2 text-center">
+                        <p class="text-2xl font-extrabold text-primary">200+</p>
+                        <p class="text-xs text-[#8A9078] mt-1">clientes atendidos</p>
                     </div>
-                    <div class="glass-card rounded-xl py-4 px-2 text-center">
-                        <p class="text-2xl font-extrabold text-white">300+</p>
-                        <p class="text-xs text-slate-500 mt-1">projetos entregues</p>
+                    <div class="card-dark py-4 px-2 text-center">
+                        <p class="text-2xl font-extrabold text-primary">300+</p>
+                        <p class="text-xs text-[#8A9078] mt-1">projetos entregues</p>
                     </div>
                 </div>
                 <a href="https://api.whatsapp.com/send/?phone=5534999111430&text=Ol%C3%A1%2C+vim+pela+p%C3%A1gina+e+quero+um+diagn%C3%B3stico+gr%C3%A1tis.&type=phone_number&app_absent=0" target="_blank" class="cta-green">
@@ -824,64 +355,59 @@
                     Quero um diagnóstico grátis
                 </a>
             </div>
-            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="rounded-[1.5rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img src="../assets/fotoequipe.png" alt="Equipe Insider Mídia" class="w-full h-auto">
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ DOBRA 5: PRÓXIMOS PASSOS ═══════════ -->
-    <section class="py-20 bg-background-dark">
+    <!-- ═══════════ DOBRA 5: PRÓXIMOS PASSOS (creme) ═══════════ -->
+    <section class="py-20 bg-cream text-ink">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Próximos Passos</h2>
-            <div class="section-underline mb-4"></div>
-            <p class="text-slate-400 mb-12">É simples e rápido. Veja o que acontece depois que você entrar em contato:</p>
+            <div class="eyebrow on-cream justify-center mb-4"><span class="dot"></span> Como funciona</div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Próximos Passos</h2>
+            <p class="text-[#5C6152] mb-12">É simples e rápido. Veja o que acontece depois que você entrar em contato:</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <!-- 01 Diagnóstico -->
-                <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">01</div>
-                    <!-- Ilustração animada: dashboard de diagnóstico -->
+                <div class="card-dark p-6 text-left">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-ink font-extrabold text-xl mb-6">01</div>
                     <div class="relative h-44 mb-6" aria-hidden="true">
-                        <!-- Badge flutuante -->
-                        <div class="absolute -top-2 -right-1 z-30 bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4s ease-in-out infinite;">
+                        <div class="absolute -top-2 -right-1 z-30 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-light font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4s ease-in-out infinite;">
                             <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">check_circle</span> +247%
                         </div>
-                        <div class="w-full h-full bg-[#0F172A] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col gap-2">
+                        <div class="w-full h-full bg-[#0E1109] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(168,224,92,0.15)] p-3 flex flex-col gap-2">
                             <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 rounded-full bg-primary" style="animation: pulsePillBlue 2.5s infinite;"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary" style="animation: pulseLime 2.5s infinite;"></div>
                                 <div class="w-20 h-1.5 bg-white/20 rounded-full"></div>
                             </div>
                             <div class="flex gap-2 flex-1">
-                                <!-- Donut -->
                                 <div class="flex items-center justify-center w-16">
-                                    <div class="w-12 h-12 rounded-full" style="background: conic-gradient(#3B82F6 0% 55%, #22C55E 55% 80%, #1F2937 80% 100%);">
+                                    <div class="w-12 h-12 rounded-full" style="background: conic-gradient(#A8E05C 0% 55%, #6FA82A 55% 80%, #2A3020 80% 100%);">
                                         <div class="w-full h-full flex items-center justify-center">
-                                            <div class="w-6 h-6 rounded-full bg-[#0F172A]"></div>
+                                            <div class="w-6 h-6 rounded-full bg-[#0E1109]"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Barras -->
                                 <div class="flex-1 flex flex-col justify-center gap-1.5">
                                     <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-primary rounded-full" style="width:80%"></div></div></div>
-                                    <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-green-400 rounded-full" style="width:55%"></div></div></div>
+                                    <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full rounded-full" style="width:55%;background:#6FA82A"></div></div></div>
                                     <div class="flex items-center gap-1.5"><div class="w-8 h-1.5 bg-white/15 rounded"></div><div class="flex-1 bg-white/5 rounded-full h-1.5"><div class="h-full bg-yellow-400 rounded-full" style="width:35%"></div></div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Diagnóstico</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Geramos oportunidades reais de vendas para ajudar no crescimento da sua empresa.</p>
+                    <p class="text-sm text-[#9AA08C] leading-relaxed">Geramos oportunidades reais de vendas para ajudar no crescimento da sua empresa.</p>
                 </div>
                 <!-- 02 Plano de Ação -->
-                <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">02</div>
-                    <!-- Ilustração animada: cronograma/gantt -->
+                <div class="card-dark p-6 text-left">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-ink font-extrabold text-xl mb-6">02</div>
                     <div class="relative h-44 mb-6" aria-hidden="true">
-                        <div class="absolute -top-2 -left-1 z-30 bg-blue-500/20 backdrop-blur-md border border-blue-500/30 text-blue-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDownDelayed 5s ease-in-out infinite;">
+                        <div class="absolute -top-2 -left-1 z-30 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-light font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDownDelayed 5s ease-in-out infinite;">
                             <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">flag</span> Metas Definidas
                         </div>
-                        <div class="w-full h-full bg-[#0F172A] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col justify-center gap-2.5">
+                        <div class="w-full h-full bg-[#0E1109] rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(168,224,92,0.15)] p-3 flex flex-col justify-center gap-2.5">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-3.5 h-3.5 rounded-full bg-primary border-2 border-primary-light"></div>
                                 <div class="flex-1 h-0.5 bg-primary/40 rounded-full"></div>
@@ -889,40 +415,39 @@
                                 <div class="flex-1 h-0.5 bg-primary/20 rounded-full"></div>
                                 <div class="w-3.5 h-3.5 rounded-full bg-white/10 border border-white/20"></div>
                             </div>
-                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-primary rounded-full" style="width:88%; animation: pulsePillBlue 3s infinite;"></div></div></div>
-                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-green-400 rounded-full" style="width:62%"></div></div></div>
+                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-primary rounded-full" style="width:88%; animation: pulseLime 3s infinite;"></div></div></div>
+                            <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full rounded-full" style="width:62%;background:#6FA82A"></div></div></div>
                             <div class="flex items-center gap-2"><div class="w-10 h-1.5 bg-white/15 rounded flex-shrink-0"></div><div class="flex-1 bg-white/5 rounded-full h-2"><div class="h-full bg-yellow-400 rounded-full" style="width:40%"></div></div></div>
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Plano de Ação</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Criamos uma estratégia personalizada para o seu negócio, com ações claras e focadas em gerar resultados reais.</p>
+                    <p class="text-sm text-[#9AA08C] leading-relaxed">Criamos uma estratégia personalizada para o seu negócio, com ações claras e focadas em gerar resultados reais.</p>
                 </div>
                 <!-- 03 Proposta Comercial -->
-                <div class="glass-card p-6 rounded-2xl text-left hover:border-primary/30 transition-colors">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-white font-extrabold text-xl mb-6">03</div>
-                    <!-- Ilustração animada: proposta comercial -->
+                <div class="card-dark p-6 text-left">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-ink font-extrabold text-xl mb-6">03</div>
                     <div class="relative h-44 mb-6" aria-hidden="true">
-                        <div class="absolute -bottom-2 -right-1 z-30 bg-green-500/20 backdrop-blur-md border border-green-500/30 text-green-300 font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4.5s ease-in-out infinite;">
+                        <div class="absolute -bottom-2 -right-1 z-30 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-light font-bold text-[10px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5" style="animation: floatUpDown 4.5s ease-in-out infinite;">
                             <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">verified</span> Aprovada
                         </div>
-                        <div class="w-full h-full bg-white rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)] p-3 flex flex-col gap-2">
+                        <div class="w-full h-full bg-white rounded-xl border border-white/10 overflow-hidden shadow-[0_0_30px_rgba(168,224,92,0.15)] p-3 flex flex-col gap-2">
                             <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-                                <div class="w-14 h-2 bg-primary/60 rounded"></div>
-                                <div class="w-6 h-6 rounded bg-primary/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[13px]">description</span></div>
+                                <div class="w-14 h-2 rounded" style="background:#8FC93A"></div>
+                                <div class="w-6 h-6 rounded flex items-center justify-center" style="background:rgba(168,224,92,0.2)"><span class="material-symbols-outlined text-[13px]" style="color:#6FA82A">description</span></div>
                             </div>
                             <div class="flex flex-col gap-1.5 flex-1 pt-1">
                                 <div class="flex justify-between items-center"><div class="w-16 h-1.5 bg-slate-300 rounded"></div><div class="w-8 h-1.5 bg-slate-300 rounded"></div></div>
                                 <div class="flex justify-between items-center"><div class="w-20 h-1.5 bg-slate-200 rounded"></div><div class="w-8 h-1.5 bg-slate-200 rounded"></div></div>
                                 <div class="flex justify-between items-center"><div class="w-14 h-1.5 bg-slate-200 rounded"></div><div class="w-8 h-1.5 bg-slate-200 rounded"></div></div>
                             </div>
-                            <div class="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-2 py-1.5" style="animation: pulsePillBlue 3s infinite;">
-                                <div class="w-10 h-1.5 bg-green-600/50 rounded"></div>
-                                <div class="w-12 h-2.5 bg-green-500 rounded"></div>
+                            <div class="flex items-center justify-between rounded-lg px-2 py-1.5" style="background:rgba(168,224,92,0.12);border:1px solid rgba(168,224,92,0.3);animation: pulseLime 3s infinite;">
+                                <div class="w-10 h-1.5 rounded" style="background:#6FA82A"></div>
+                                <div class="w-12 h-2.5 rounded bg-primary"></div>
                             </div>
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Proposta Comercial</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Você recebe uma proposta sob medida, com tudo que foi definido para o seu projeto e o investimento necessário para começar.</p>
+                    <p class="text-sm text-[#9AA08C] leading-relaxed">Você recebe uma proposta sob medida, com tudo que foi definido para o seu projeto e o investimento necessário para começar.</p>
                 </div>
             </div>
 
@@ -934,39 +459,39 @@
     </section>
 
     <!-- ═══════════ DOBRA 6: FAQ ═══════════ -->
-    <section class="py-20 bg-background-dark bg-grid">
+    <section class="py-20 bg-ink">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Perguntas frequentes</h2>
-            <div class="section-underline mb-12"></div>
+            <div class="eyebrow on-dark justify-center mb-4"><span class="dot"></span> Dúvidas</div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-12">Perguntas frequentes</h2>
 
             <div class="space-y-3 text-left mb-12">
-                <details class="glass-card rounded-xl px-6 py-4 group">
+                <details class="card-dark px-6 py-4 group">
                     <summary class="flex items-center justify-between cursor-pointer list-none text-white font-semibold">
                         Como vocês definem a estratégia certa para o meu negócio?
-                        <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+                        <span class="material-symbols-outlined text-[#9AA08C] group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="text-slate-400 text-sm leading-relaxed mt-4">Começamos com um diagnóstico completo do seu momento atual, mercado e objetivos. A partir disso, montamos uma estratégia personalizada, focada nos canais e ações com maior potencial de gerar vendas para a sua empresa.</p>
+                    <p class="text-[#9AA08C] text-sm leading-relaxed mt-4">Começamos com um diagnóstico completo do seu momento atual, mercado e objetivos. A partir disso, montamos uma estratégia personalizada, focada nos canais e ações com maior potencial de gerar vendas para a sua empresa.</p>
                 </details>
-                <details class="glass-card rounded-xl px-6 py-4 group">
+                <details class="card-dark px-6 py-4 group">
                     <summary class="flex items-center justify-between cursor-pointer list-none text-white font-semibold">
                         Qual o valor mínimo de investimento nas campanhas?
-                        <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+                        <span class="material-symbols-outlined text-[#9AA08C] group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="text-slate-400 text-sm leading-relaxed mt-4">O investimento em mídia varia de acordo com o seu segmento e objetivos. Durante o diagnóstico gratuito, definimos juntos o valor ideal para gerar resultados consistentes sem desperdiçar verba.</p>
+                    <p class="text-[#9AA08C] text-sm leading-relaxed mt-4">O investimento em mídia varia de acordo com o seu segmento e objetivos. Durante o diagnóstico gratuito, definimos juntos o valor ideal para gerar resultados consistentes sem desperdiçar verba.</p>
                 </details>
-                <details class="glass-card rounded-xl px-6 py-4 group">
+                <details class="card-dark px-6 py-4 group">
                     <summary class="flex items-center justify-between cursor-pointer list-none text-white font-semibold">
                         Quanto tempo leva para ver os resultados?
-                        <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+                        <span class="material-symbols-outlined text-[#9AA08C] group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="text-slate-400 text-sm leading-relaxed mt-4">Os primeiros resultados costumam aparecer já nas primeiras semanas de campanha. Estratégias sólidas de crescimento, porém, ganham força e previsibilidade ao longo dos primeiros meses de trabalho.</p>
+                    <p class="text-[#9AA08C] text-sm leading-relaxed mt-4">Os primeiros resultados costumam aparecer já nas primeiras semanas de campanha. Estratégias sólidas de crescimento, porém, ganham força e previsibilidade ao longo dos primeiros meses de trabalho.</p>
                 </details>
-                <details class="glass-card rounded-xl px-6 py-4 group">
+                <details class="card-dark px-6 py-4 group">
                     <summary class="flex items-center justify-between cursor-pointer list-none text-white font-semibold">
                         Quanto custa contratar a Insider Mídia?
-                        <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+                        <span class="material-symbols-outlined text-[#9AA08C] group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="text-slate-400 text-sm leading-relaxed mt-4">O valor depende do escopo e dos objetivos do seu projeto. Após o diagnóstico gratuito, você recebe uma proposta comercial sob medida, com tudo o que foi definido e o investimento necessário para começar.</p>
+                    <p class="text-[#9AA08C] text-sm leading-relaxed mt-4">O valor depende do escopo e dos objetivos do seu projeto. Após o diagnóstico gratuito, você recebe uma proposta comercial sob medida, com tudo o que foi definido e o investimento necessário para começar.</p>
                 </details>
             </div>
 
@@ -980,29 +505,29 @@
     </main>
 
     <!-- ═══════════ RODAPÉ ═══════════ -->
-    <footer class="border-t border-white/5 pt-14 pb-8 bg-background-dark">
+    <footer class="border-t border-white/5 pt-14 pb-8 bg-ink">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <img src="../assets/INSIDER - logo branca.png" alt="Insider Mídia" class="h-9 w-auto mb-5 opacity-90">
-            <p class="flex items-center gap-2 text-slate-400 text-sm mb-5">
-                <span class="material-symbols-outlined text-primary-light text-[18px]">location_on</span>
+            <p class="flex items-center gap-2 text-[#9AA08C] text-sm mb-5">
+                <span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
                 Av. Padre Almir, 958 - Sala 405, Patos de Minas - MG
             </p>
             <div class="flex items-center gap-5 mb-8">
-                <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-white transition-colors">
+                <a href="#" aria-label="Facebook" class="text-[#9AA08C] hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
                 </a>
-                <a href="#" aria-label="Twitter" class="text-slate-400 hover:text-white transition-colors">
+                <a href="#" aria-label="Twitter" class="text-[#9AA08C] hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65z"/></svg>
                 </a>
-                <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-white transition-colors">
+                <a href="#" aria-label="Instagram" class="text-[#9AA08C] hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/></svg>
                 </a>
-                <a href="#" aria-label="LinkedIn" class="text-slate-400 hover:text-white transition-colors">
+                <a href="#" aria-label="LinkedIn" class="text-[#9AA08C] hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
                 </a>
             </div>
             <div class="border-t border-white/5 pt-6">
-                <p class="text-slate-500 text-xs">© 2026 Insider Mídia. Todos os direitos reservados. CNPJ: 45.964.126/0001-33</p>
+                <p class="text-[#7A8068] text-xs">© 2026 Insider Mídia. Todos os direitos reservados. CNPJ: 45.964.126/0001-33</p>
             </div>
         </div>
     </footer>
