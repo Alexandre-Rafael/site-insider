@@ -65,11 +65,3 @@ Em mais de 4 anos de parceria, os resultados foram expressivos:
 O case do Dr. Rodrigo Amorim é uma história de construção de autoridade. Em pouco mais de 4 anos, um dentista recém-formado se transformou em referência nacional em Full Face — com agenda cheia, centenas de casos documentados e atuação em São Paulo, um dos mercados mais competitivos do país.
 
 Mais do que números, esse case mostra o poder de uma estratégia bem construída para profissionais de saúde: quando competência técnica encontra presença digital consistente e posicionamento estratégico, o crescimento não é uma possibilidade — é uma consequência.
-
-**Recursos visuais sugeridos**
-
-* Galeria de antes e depois — seleção dos casos mais impactantes documentados ao longo da parceria
-* Linha do tempo — evolução do Dr. Rodrigo: recém-formado a referência nacional em Full Face
-* Infográfico — a jornada de compra do paciente e como cada etapa foi trabalhada
-* Capturas de tela — exemplos de campanhas, criativos e páginas de vendas
-* Depoimento em vídeo — trecho do depoimento do Dr. Rodrigo sobre a parceria
