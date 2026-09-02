@@ -29,14 +29,19 @@ var ABA = 'assessoria';
 // A ordem aqui define a ordem das colunas na planilha.
 // A primeira posição de cada par é a "key" da pergunta no chat-form.js.
 var COLUNAS = [
-  ['data',      'Data/Hora'],
-  ['nome',      'Nome'],
-  ['email',     'E-mail'],
-  ['whatsapp',  'WhatsApp'],
-  ['instagram', 'Instagram'],
-  ['comercial', 'Pessoas no comercial'],
-  ['trafego',   'Investimento em tráfego'],
-  ['origem',    'Página de origem']
+  ['data',         'Data/Hora'],
+  ['nome',         'Nome'],
+  ['email',        'E-mail'],
+  ['whatsapp',     'WhatsApp'],
+  ['instagram',    'Instagram'],
+  ['comercial',    'Pessoas no comercial'],
+  ['trafego',      'Investimento em tráfego'],
+  ['utm_source',   'utm_source'],
+  ['utm_medium',   'utm_medium'],
+  ['utm_campaign', 'utm_campaign'],
+  ['utm_content',  'utm_content'],
+  ['utm_term',     'utm_term'],
+  ['origem',       'Página de origem']
 ];
 
 /* ---------- GRAVAÇÃO ---------- */

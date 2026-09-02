@@ -26,7 +26,7 @@
     sheetUrl: 'https://script.google.com/macros/s/AKfycbwxd4MczOkYbtisASZPaH2iFR2ruo9ISJd6ZjYc_bDPet-datfdX6eMZBwMLdweRrvt/exec',
 
     // WhatsApp de destino (so numeros, com DDI 55)
-    whatsapp: '5511999999999',
+    whatsapp: '5534999111430',
 
     // Mensagem que o lead envia no WhatsApp (os dados vao SO pra planilha)
     whatsappMsg: 'Olá, vim pelo site e gostaria de saber mais.',
@@ -494,6 +494,12 @@
     Object.keys(data).forEach(function (k) { p.append(k, data[k]); });
     p.append('origem', location.href);
     p.append('data', new Date().toLocaleString('pt-BR'));
+
+    // UTMs da URL (rastreamento de campanha)
+    var qs = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+      p.append(k, qs.get(k) || '');
+    });
 
     var corpo = p.toString();
     var tipo = 'application/x-www-form-urlencoded;charset=UTF-8';

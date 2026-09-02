@@ -495,6 +495,12 @@
     p.append('origem', location.href);
     p.append('data', new Date().toLocaleString('pt-BR'));
 
+    // UTMs da URL (rastreamento de campanha)
+    var qs = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+      p.append(k, qs.get(k) || '');
+    });
+
     var corpo = p.toString();
     var tipo = 'application/x-www-form-urlencoded;charset=UTF-8';
     var ok = false;
