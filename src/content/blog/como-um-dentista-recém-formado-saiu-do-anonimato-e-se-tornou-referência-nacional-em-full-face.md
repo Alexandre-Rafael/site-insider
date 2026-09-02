@@ -8,17 +8,17 @@ author: Gabriel de Oliveira
 date: 2026-09-02
 draft: false
 ---
-**Sobre o Dr. Rodrigo Amorim**
+## **Sobre o Dr. Rodrigo Amorim**
 
 O Dr. Rodrigo Amorim é dentista especialista em Full Face, atualmente sediado em São Paulo/SP. Quando iniciou a parceria com a Insider Mídia, era um profissional recém-formado, dando seus primeiros passos no mercado e buscando construir sua reputação e carteira de pacientes do zero.
 
-**Cenário encontrado**
+## **Cenário encontrado**
 
 Entrar no mercado odontológico é, por si só, um desafio. Para profissionais jovens, o obstáculo vai além da competência técnica: é preciso vencer a desconfiança natural do público em relação a quem ainda não tem um histórico extenso de casos para mostrar.
 
 O Dr. Rodrigo sabia que tinha o conhecimento e a habilidade para entregar resultados excepcionais. O que faltava era visibilidade, posicionamento e uma estratégia que transformasse sua competência em autoridade percebida pelo mercado.
 
-**Diagnóstico inicial**
+## **Diagnóstico inicial**
 
 Ao iniciar o trabalho, identificamos três pontos centrais que precisavam ser endereçados:
 
@@ -26,7 +26,7 @@ Ao iniciar o trabalho, identificamos três pontos centrais que precisavam ser en
 * Público-alvo de ticket alto, mais criterioso e exigente no processo de decisão — o que tornava a construção de autoridade ainda mais essencial.
 * Necessidade de atuar em todas as etapas da jornada do paciente: desde o primeiro contato com a marca até a conversão final.
 
-**Estratégia adotada**
+## **Estratégia adotada**
 
 A estratégia foi construída para trabalhar cada etapa da jornada de compra do paciente, com um objetivo central: substituir a desconfiança pela prova concreta de resultados.
 
@@ -38,13 +38,13 @@ As principais ações incluíram:
 * Landing pages otimizadas para captura de leads qualificados, com comunicação direta e focada nas dores e desejos do público.
 * Implementação de CRM para gestão e nutrição dos contatos ao longo de todo o processo de decisão.
 
-**Desafios enfrentados e soluções**
+## **Desafios enfrentados e soluções**
 
 O primeiro e maior desafio foi vencer a desconfiança do público em relação a um profissional jovem sem histórico visível. A solução foi direta: investimos desde o início na documentação e publicação consistente de casos reais de antes e depois, construindo um portfólio visual que falava mais alto do que qualquer argumento.
 
 O segundo desafio foi a qualificação dos leads em um mercado de ticket alto. A vaidade humana é universal — o desejo de transformação estética existe em muitas pessoas, mas a disposição para investir valores mais elevados exige um nível maior de confiança e autoridade percebida. Para superar isso, combinamos a elevação contínua de autoridade com um trabalho estruturado de tratamento de dados e nutrição de leads via CRM, acompanhando o paciente ao longo de todo o processo de decisão.
 
-**Resultados alcançados**
+## **Resultados alcançados**
 
 Em mais de 4 anos de parceria, os resultados foram expressivos:
 
@@ -55,12 +55,12 @@ Em mais de 4 anos de parceria, os resultados foram expressivos:
 * Público engajado nas redes sociais, com alto nível de identificação com os casos apresentados.
 * Processo comercial estruturado com CRM, páginas de vendas e gestão eficiente de leads qualificados.
 
-**Depoimento**
+### **Depoimento**
 
 *"Sem o trabalho da Insider Mídia, nada disso teria sido possível."*
 **— Dr. Rodrigo Amorim — Especialista em Full Face, São Paulo/SP**
 
-**Conclusão**
+## **Conclusão**
 
 O case do Dr. Rodrigo Amorim é uma história de construção de autoridade. Em pouco mais de 4 anos, um dentista recém-formado se transformou em referência nacional em Full Face — com agenda cheia, centenas de casos documentados e atuação em São Paulo, um dos mercados mais competitivos do país.
 
