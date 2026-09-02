@@ -1,7 +1,7 @@
 ---
 title: "Do anonimato à gelateria mais bem avaliada da cidade: como a Saziare
   conquistou +14 milhões de impressões em 4 anos"
-cover: /uploads/fotosaziare.jpg
+cover: /uploads/fotosaziare_11zon.webp
 logo: /uploads/saziare_logo.png
 coverPosition: center
 category: Cases de Sucesso
