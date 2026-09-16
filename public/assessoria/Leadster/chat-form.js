@@ -444,11 +444,6 @@
     push(value, 'user');
     foot.innerHTML = '';
     idx++;
-
-    // Assim que a ULTIMA resposta chega, manda pra planilha na hora — antes das
-    // mensagens de encerramento e muito antes do clique no WhatsApp.
-    if (idx >= STEPS.length) sendToSheet();
-
     render();
   }
 
@@ -456,14 +451,10 @@
     done = true;
     barFill.style.width = '100%';
 
-    // Rede de seguranca: se por algum motivo nao tiver saido no answer(), sai
-    // aqui. A flag "enviado" garante que nao vai duplicar a linha.
-    sendToSheet();
-
     var first = (data.nome || '').split(' ')[0];
     await botSay([
       'Prontinho, ' + first + '! ✅',
-      'Recebi todas as informações. Vou te chamar agora no WhatsApp pra continuarmos por lá.'
+      'Recebi todas as informações. Clique no botão abaixo para falar com a gente no WhatsApp.'
     ]);
 
     var link = 'https://wa.me/' + CONFIG.whatsapp + '?text=' +
@@ -472,11 +463,24 @@
     a.href = link;
     a.target = '_blank';
     a.rel = 'noopener';
+
+    // Só ao CLICAR no botão: grava o lead na planilha E dispara o evento do GTM.
+    // (o dataLayer é global; o Shadow DOM não bloqueia esse push)
+    a.addEventListener('click', function () {
+      sendToSheet();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'clique_whatsapp',
+        form: 'assessoria',
+        nome: data.nome || '',
+        email: data.email || '',
+        whatsapp: data.whatsapp || ''
+      });
+    });
+
     foot.appendChild(a);
     foot.appendChild(el('div', 'cf-lgpd',
       'Seus dados são tratados com confidencialidade e usados apenas para este atendimento.'));
-
-    setTimeout(function () { window.location.href = link; }, CONFIG.redirectDelay);
   }
 
   /* ---------- ENVIO PRA PLANILHA ----------
