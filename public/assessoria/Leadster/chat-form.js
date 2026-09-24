@@ -252,6 +252,14 @@
   /* ---------- ESTADO ---------- */
   var host, shadow, body, foot, barFill;
   var idx = 0, data = {}, built = false, done = false, enviado = false;
+  // ID único da sessão: faz o Apps Script atualizar SEMPRE a mesma linha
+  // (captura parcial a cada passo, sem duplicar linha).
+  var sessao = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  // Rede de segurança: se o usuário sair/trocar de aba com o form aberto,
+  // manda o que já foi preenchido.
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden' && Object.keys(data).length) sendToSheet();
+  });
 
   // O host fica no light DOM, mas com "all:initial" pra nao herdar nada do tema.
   var HOST_STYLE = 'all:initial;position:fixed;top:0;left:0;right:0;bottom:0;' +
@@ -444,6 +452,7 @@
     push(value, 'user');
     foot.innerHTML = '';
     idx++;
+    sendToSheet();   // captura parcial a cada passo (mesma linha via sessão)
     render();
   }
 
@@ -488,14 +497,15 @@
      a navegar: o navegador garante a entrega mesmo depois do unload. O fetch
      comum era cancelado no meio do caminho quando o usuario ia pro WhatsApp. */
   function sendToSheet() {
-    if (enviado) { log('ja enviado, ignorando'); return true; }
     if (!CONFIG.sheetUrl || CONFIG.sheetUrl.indexOf('http') !== 0) {
       log('sheetUrl nao configurada');
       return false;
     }
+    if (Object.keys(data).length === 0) { return false; } // nada preenchido ainda
 
     var p = new URLSearchParams();
     Object.keys(data).forEach(function (k) { p.append(k, data[k]); });
+    p.append('sessao', sessao);
     p.append('origem', location.href);
     p.append('data', new Date().toLocaleString('pt-BR'));
 
