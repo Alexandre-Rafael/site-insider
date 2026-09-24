@@ -23,7 +23,7 @@
   /* ---------- CONFIGURACAO ---------- */
   var CONFIG = {
     // URL do Web App do Google Apps Script (veja apps-script.gs)
-    sheetUrl: 'https://script.google.com/macros/s/AKfycbx6crMS1lVQC14os8BIpaXCCynFrEZ0V20ZJxrR84lzrsV0THw8boc16JDp1yT9tLBQtA/exec',
+    sheetUrl: 'https://script.google.com/macros/s/AKfycbybualpR6_8pVtbC7X9SUtmIXb9sZsXZDoDecZCxc0FFWgjRDWU2cov58_5xB9czjFT/exec',
 
     // WhatsApp de destino (so numeros, com DDI 55)
     whatsapp: '5534999111430',
